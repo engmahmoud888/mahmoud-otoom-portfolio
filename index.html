@@ -3,599 +3,395 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07101d">
-<meta name="description" content="Mahmoud Otoom — Executive Technology Portfolio | Senior IT Project & Program Manager | Cybersecurity | Digital Transformation | PMO & Governance">
-<title>Mahmoud Otoom — Executive Technology Portfolio</title>
+<meta name="theme-color" content="#f4efe7">
+<meta name="description" content="Mahmoud Otoom — Executive Technology Portfolio. Senior IT Project & Program Manager across cybersecurity, digital transformation, PMO, infrastructure and telecom.">
+<title>Mahmoud Otoom — Executive Portfolio</title>
 <style>
 :root{
-  --navy:#07101d;
-  --navy2:#0c1828;
-  --ink:#0f1720;
-  --paper:#f3efe8;
-  --paper2:#e9e3d9;
-  --white:#f8f7f3;
-  --muted:#9ba5b0;
-  --gold:#d1aa69;
-  --teal:#70d6cc;
-  --line:rgba(255,255,255,.14);
-  --darkline:rgba(15,23,32,.15);
-  --max:1360px;
+  --paper:#f6f1e9;
+  --paper2:#eee6da;
+  --ink:#111417;
+  --muted:#686a6d;
+  --charcoal:#202427;
+  --night:#0d1721;
+  --night2:#142431;
+  --gold:#b88a4c;
+  --gold2:#d1ac76;
+  --line:rgba(17,20,23,.16);
+  --lightline:rgba(255,255,255,.17);
+  --max:1450px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--navy)}
+html{scroll-behavior:smooth;background:var(--paper)}
 body{
   margin:0;
-  color:var(--white);
-  background:var(--navy);
+  background:var(--paper);
+  color:var(--ink);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-button{font:inherit}
 img{display:block;max-width:100%}
-::selection{background:var(--gold);color:#111}
-
-.site-progress{
-  position:fixed;z-index:120;top:0;left:0;height:3px;width:0;
-  background:linear-gradient(90deg,var(--gold),var(--teal));
+button{font:inherit}
+::selection{background:var(--gold);color:#fff}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.wrap{width:min(calc(100% - 56px),var(--max));margin:auto}
+.label{
+  font-size:.7rem;letter-spacing:.21em;text-transform:uppercase;font-weight:800;
+}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+.progress{
+  position:fixed;z-index:1000;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--gold),#d9c09e);
 }
 .topbar{
-  position:fixed;z-index:100;top:0;left:0;right:0;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 28px;
-  mix-blend-mode:difference;
-  color:#fff;
+  position:fixed;z-index:900;top:0;left:0;right:0;
+  background:rgba(246,241,233,.91);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(17,20,23,.08);
 }
-.logo{font-weight:900;letter-spacing:-.03em;font-size:.96rem}
-.logo span{opacity:.55;font-weight:600}
-.navlinks{display:flex;gap:22px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
-.navlinks a{opacity:.58;transition:.2s}.navlinks a:hover{opacity:1}
-.section-dot{
-  position:fixed;z-index:80;right:18px;top:50%;transform:translateY(-50%);
-  display:grid;gap:10px;
+.topbar-inner{
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;height:82px;display:grid;
+  grid-template-columns:1fr auto auto;align-items:center;gap:38px;
 }
-.section-dot a{
-  width:7px;height:7px;border:1px solid rgba(255,255,255,.55);border-radius:50%;
-  transition:.25s;background:transparent;
+.logo strong{display:block;font-size:1.08rem;letter-spacing:-.03em}
+.logo span{display:block;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:#7d7872;margin-top:3px}
+.menu{display:flex;gap:30px;font-size:.78rem}
+.menu a{opacity:.68;transition:.2s}.menu a:hover{opacity:1}
+.cta{
+  border:1px solid #181b1e;background:#181b1e;color:#fff;
+  padding:13px 20px;display:inline-flex;align-items:center;gap:14px;
+  font-size:.78rem;font-weight:800;
 }
-.section-dot a.active{background:#fff;transform:scale(1.45)}
-
-.scene{
-  position:relative;
-  min-height:100svh;
-  overflow:hidden;
-  scroll-snap-align:start;
-}
-.wrap{width:min(calc(100% - 56px),var(--max));margin:auto;position:relative;z-index:2}
-.label{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;font-weight:800}
-.display{font-size:clamp(3.4rem,8vw,8.7rem);line-height:.83;letter-spacing:-.065em;margin:0;font-weight:850}
-.serif{font-family:Georgia,"Times New Roman",serif;font-weight:500}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-.reveal.in{opacity:1;transform:none}
+.cta:after{content:"→";font-size:1rem}
+.mobile-menu{display:none}
 
 .hero{
+  min-height:100svh;
+  padding-top:82px;
   background:
-    radial-gradient(circle at 18% 20%,rgba(112,214,204,.11),transparent 25%),
-    radial-gradient(circle at 78% 25%,rgba(209,170,105,.1),transparent 20%),
-    var(--navy);
+    linear-gradient(90deg,rgba(246,241,233,1) 0 43%,rgba(246,241,233,.68) 58%,rgba(246,241,233,.08) 74%),
+    var(--paper);
+  position:relative;overflow:hidden;
 }
 .hero-grid{
-  min-height:100svh;
-  display:grid;
-  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);
-  align-items:stretch;
+  min-height:calc(100svh - 82px);
+  display:grid;grid-template-columns:43% 39% 18%;
+  position:relative;
 }
 .hero-copy{
-  padding:145px 0 54px 0;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  position:relative;z-index:4;
+  padding:72px 46px 160px max(28px,calc((100vw - var(--max))/2));
+  display:flex;flex-direction:column;justify-content:center;z-index:4;
 }
-.hero-kicker{display:flex;gap:12px;align-items:center;color:var(--teal);margin-bottom:24px}
-.hero-kicker:before{content:"";width:46px;height:1px;background:currentColor}
-.hero .display{max-width:820px}
+.hero-kicker{display:flex;align-items:center;gap:15px;margin-bottom:22px}
+.hero-kicker:before{content:"";width:42px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:500;
+  font-size:clamp(4rem,6.5vw,7.5rem);
+  line-height:.86;
+  letter-spacing:-.055em;
+  margin:0;
+}
+.hero h1 em{font-style:normal;color:var(--gold)}
 .hero-deck{
-  max-width:690px;
-  font-size:clamp(1.05rem,1.7vw,1.42rem);
-  color:rgba(248,247,243,.73);
-  line-height:1.55;margin:32px 0 0;
+  max-width:610px;
+  font-size:clamp(1.02rem,1.4vw,1.3rem);
+  line-height:1.55;color:#35383b;margin:28px 0 0;
 }
-.hero-portrait{
-  position:relative;
-  min-height:100svh;
-  overflow:hidden;
-  background:#d8d4ce;
+.hero-actions{display:flex;gap:14px;align-items:center;margin-top:34px}
+.secondary{
+  border:1px solid rgba(17,20,23,.28);padding:13px 18px;font-size:.78rem;font-weight:750;background:rgba(255,255,255,.5)
 }
-.hero-portrait:before{
-  content:"";position:absolute;z-index:2;inset:0;
-  background:
-    linear-gradient(90deg,var(--navy) 0%,transparent 20%),
-    linear-gradient(0deg,rgba(7,16,29,.75) 0%,transparent 35%);
-  pointer-events:none;
+.hero-photo{
+  position:relative;overflow:hidden;min-height:calc(100svh - 82px);
+  background:#d7d0c6;
 }
-.hero-portrait img{
+.hero-photo img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:51% 18%;
-  filter:saturate(.84) contrast(1.03);
+  object-fit:cover;object-position:50% 14%;
 }
-.hero-portrait .stamp{
-  position:absolute;z-index:4;right:24px;top:94px;
-  border:1px solid rgba(255,255,255,.48);
-  width:124px;height:124px;border-radius:50%;
-  display:grid;place-items:center;text-align:center;
-  font-size:.62rem;line-height:1.5;letter-spacing:.16em;text-transform:uppercase;
-  backdrop-filter:blur(12px);background:rgba(7,16,29,.18);
+.hero-photo:before{
+  content:"";position:absolute;z-index:2;inset:0;
+  background:linear-gradient(90deg,rgba(246,241,233,.68),transparent 24%),
+             linear-gradient(0deg,rgba(17,20,23,.18),transparent 38%);
 }
-.hero-stats{
-  position:absolute;z-index:6;left:0;right:0;bottom:0;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-  background:rgba(7,16,29,.72);backdrop-filter:blur(16px);
+.side-rail{
+  background:linear-gradient(180deg,#4a4641,#2e2c29);
+  color:#fff;position:relative;padding:72px 36px 46px;
+  display:flex;flex-direction:column;justify-content:space-between;
 }
-.hero-stat{padding:20px 24px;border-right:1px solid var(--line)}
-.hero-stat:last-child{border-right:0}
-.hero-stat strong{display:block;font-size:1.55rem;letter-spacing:-.04em}
-.hero-stat span{display:block;color:rgba(255,255,255,.58);font-size:.68rem;margin-top:4px}
-.hero-index{
-  position:absolute;left:28px;top:110px;writing-mode:vertical-rl;
-  letter-spacing:.25em;text-transform:uppercase;font-size:.6rem;color:rgba(255,255,255,.34)
+.side-rail:before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(255,255,255,.22)}
+.side-rail .stack{display:grid;gap:13px;font-size:.83rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.side-rail .rule{width:42px;height:1px;background:var(--gold2);margin:30px 0}
+.side-quote{
+  font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;line-height:1.25;font-style:italic;color:rgba(255,255,255,.82)
 }
-.scroll-cue{margin-top:44px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.5);font-size:.72rem}
-.scroll-cue i{display:block;width:42px;height:1px;background:rgba(255,255,255,.35)}
+.side-quote span{font-family:Inter,ui-sans-serif,sans-serif;display:block;margin-top:20px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;font-style:normal;color:rgba(255,255,255,.55)}
+.stats-strip{
+  position:absolute;z-index:7;left:0;right:18%;bottom:0;height:116px;
+  background:rgba(246,241,233,.96);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat{padding:22px 32px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.stat:last-child{border-right:0}
+.stat b{font-family:Georgia,"Times New Roman",serif;font-size:2.1rem;font-weight:500;letter-spacing:-.04em}
+.stat span{font-size:.69rem;color:#696b6d;margin-top:3px}
 
-.ticker{
-  background:var(--gold);color:#16120d;white-space:nowrap;overflow:hidden;
-  border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)
+.mission{
+  min-height:78svh;display:grid;grid-template-columns:1.08fr .92fr;
+  background:var(--night);color:#fff;
 }
-.ticker-track{
-  display:inline-flex;gap:44px;padding:15px 0;min-width:200%;
-  font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;
-  animation:ticker 22s linear infinite;
-}
-.ticker-track span:after{content:"◆";margin-left:44px;font-size:.55rem}
-@keyframes ticker{to{transform:translateX(-50%)}}
-
-.profile{background:var(--paper);color:var(--ink)}
-.profile-grid{
-  min-height:100svh;display:grid;grid-template-columns:.72fr 1.28fr;align-items:stretch;
-}
-.profile-side{
-  padding:120px 54px 70px 0;display:flex;flex-direction:column;justify-content:space-between;
-  border-right:1px solid var(--darkline);
-}
-.profile-side .big-no{font-size:clamp(7rem,16vw,14rem);line-height:.8;letter-spacing:-.08em;color:#ddd5c8;font-weight:900}
-.profile-side p{max-width:280px;color:#62656a;font-size:.93rem}
-.profile-main{padding:120px 0 70px 70px;display:flex;flex-direction:column;justify-content:center}
-.profile-main h2{
-  font-size:clamp(3rem,6.6vw,7rem);line-height:.95;letter-spacing:-.052em;margin:0 0 42px;max-width:950px;
-}
-.profile-main .lead{
-  max-width:760px;font-size:clamp(1.25rem,2vw,1.75rem);line-height:1.45;margin:0 0 32px;
-}
-.profile-main .body{max-width:740px;color:#4e5358;columns:2;column-gap:42px;font-size:.98rem;line-height:1.8}
-.pullquote{
-  margin-top:44px;padding:26px 0 0;border-top:1px solid var(--darkline);
-  display:flex;align-items:flex-start;justify-content:space-between;gap:30px
-}
-.pullquote strong{font-family:Georgia,"Times New Roman",serif;font-size:1.8rem;font-weight:500;max-width:600px}
-.pullquote span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#6f7478}
-
-.dashboard{
+.mission-image{
+  position:relative;overflow:hidden;
   background:
-    linear-gradient(180deg,#091421,#07101d);
-  color:white;padding:110px 0 100px;
+    radial-gradient(circle at 72% 32%,rgba(184,138,76,.28),transparent 20%),
+    linear-gradient(145deg,#09151f,#172b39 55%,#0c1721);
 }
-.dashboard-head{display:flex;justify-content:space-between;gap:34px;align-items:flex-end;margin-bottom:54px}
-.dashboard h2{font-size:clamp(3rem,6vw,6.4rem);line-height:.9;letter-spacing:-.055em;margin:0;max-width:940px}
-.dashboard-head p{max-width:360px;color:rgba(255,255,255,.58);font-size:.9rem}
-.dash-grid{
-  display:grid;grid-template-columns:1.25fr .75fr;gap:18px;
+.skyline{
+  position:absolute;inset:auto 0 0;height:72%;
+  display:flex;align-items:flex-end;justify-content:center;gap:7px;padding:0 7%;
+  opacity:.92;
 }
-.panel{
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.035);
-  backdrop-filter:blur(8px);
-  padding:26px;position:relative;overflow:hidden;
+.tower{width:6%;background:linear-gradient(180deg,#263b48,#0d1721);border:1px solid rgba(255,255,255,.08);position:relative}
+.tower:after{content:"";position:absolute;inset:10px 20%;background:repeating-linear-gradient(180deg,rgba(218,181,125,.7) 0 2px,transparent 2px 13px);opacity:.5}
+.t1{height:38%}.t2{height:61%}.t3{height:52%}.t4{height:75%}.t5{height:44%}.t6{height:88%;clip-path:polygon(47% 0,58% 10%,58% 100%,0 100%,0 12%)}.t7{height:56%}.t8{height:68%}.t9{height:46%}
+.mission-overlay{
+  position:absolute;z-index:3;inset:0;padding:72px 7%;display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(180deg,rgba(13,23,33,.05),rgba(13,23,33,.28) 40%,rgba(13,23,33,.92));
 }
-.panel:before{
-  content:"";position:absolute;inset:0 auto auto 0;width:100%;height:2px;
-  background:linear-gradient(90deg,var(--gold),transparent 70%);
+.mission-overlay h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.8rem,5vw,5.5rem);line-height:.92;font-weight:500;max-width:780px;margin:16px 0 24px;
 }
-.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.panel-title strong{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-.panel-title span{font-size:.68rem;color:rgba(255,255,255,.45)}
-.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.12)}
-.metric{
-  background:#0a1524;padding:28px;min-height:166px;display:flex;flex-direction:column;justify-content:space-between
+.mission-overlay p{max-width:650px;color:rgba(255,255,255,.7);line-height:1.65}
+.mission-quote{
+  background:var(--paper);color:var(--ink);padding:72px 8%;
+  display:flex;flex-direction:column;justify-content:center;
 }
-.metric .num{font-size:clamp(3rem,5vw,5.4rem);font-weight:850;line-height:.9;letter-spacing:-.06em}
-.metric .unit{font-size:.72rem;color:var(--teal);letter-spacing:.14em;text-transform:uppercase}
-.metric .cap{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:18px;max-width:180px}
-.arc-wrap{display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center}
-.arc{
-  width:150px;aspect-ratio:1;border-radius:50%;
-  background:conic-gradient(var(--teal) 0 76%,rgba(255,255,255,.08) 76% 100%);
-  position:relative;display:grid;place-items:center;
+.quote-mark{font-family:Georgia,"Times New Roman",serif;color:var(--gold);font-size:5rem;line-height:.5}
+.mission-quote blockquote{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2rem,3.5vw,4rem);line-height:1.05;margin:28px 0 34px;font-style:italic;
 }
-.arc:before{content:"";position:absolute;width:112px;aspect-ratio:1;border-radius:50%;background:#0a1524}
-.arc strong{position:relative;font-size:2.1rem}
-.arc-text h3{font-size:1.45rem;margin:0 0 8px}
-.arc-text p{margin:0;color:rgba(255,255,255,.52);font-size:.84rem;line-height:1.6}
-.bars{margin-top:28px;display:grid;gap:16px}
-.bar-row{display:grid;grid-template-columns:145px 1fr 44px;gap:14px;align-items:center;font-size:.76rem}
-.bar-row .track{height:7px;background:rgba(255,255,255,.08);overflow:hidden}
-.bar-row .fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--teal));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
-.panel.in .fill[data-w="92"]{width:92%}.panel.in .fill[data-w="88"]{width:88%}.panel.in .fill[data-w="84"]{width:84%}.panel.in .fill[data-w="79"]{width:79%}
+.signature{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:#7b7772}
+.signature strong{display:block;color:var(--ink);font-size:.8rem;margin-bottom:6px}
 
-.case-intro{background:var(--paper2);color:var(--ink);padding:110px 0 80px}
-.case-intro h2{font-size:clamp(3.2rem,7vw,7.4rem);line-height:.9;letter-spacing:-.06em;margin:0;max-width:1030px}
-.case-intro .sub{margin:26px 0 0;max-width:660px;color:#555b5e;font-size:1.08rem}
+.dashboard{background:var(--paper2);padding:100px 0}
+.section-head{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:start;margin-bottom:52px}
+.section-head h2{
+  font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,6vw,6rem);line-height:.95;letter-spacing:-.05em;font-weight:500;margin:0;max-width:1000px
+}
+.dash-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.panel{border:1px solid var(--line);background:rgba(255,255,255,.46);padding:28px}
+.panel-title{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#6f6b67;margin-bottom:26px}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.metric{background:var(--paper);min-height:176px;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.metric small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#7b7772}
+.metric strong{font-family:Georgia,"Times New Roman",serif;font-size:4rem;line-height:.9;font-weight:500;letter-spacing:-.05em}
+.metric span{font-size:.76rem;color:#6a6c6e}
+.outcome{display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:center}
+.ring{
+  width:170px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--gold) 0 76%,rgba(17,20,23,.08) 76%);
+  display:grid;place-items:center;position:relative;
+}
+.ring:before{content:"";position:absolute;width:126px;aspect-ratio:1;border-radius:50%;background:var(--paper)}
+.ring b{position:relative;font-family:Georgia,"Times New Roman",serif;font-size:2.5rem;font-weight:500}
+.outcome h3{font-family:Georgia,"Times New Roman",serif;font-size:2rem;font-weight:500;margin:0 0 12px}
+.outcome p{color:#626568;line-height:1.65;margin:0}
 
+.impact{background:var(--paper);padding:100px 0}
+.case-list{border-top:1px solid var(--line)}
 .case{
-  min-height:100svh;color:white;display:grid;align-items:stretch;
+  display:grid;grid-template-columns:110px 1.2fr .8fr;gap:34px;align-items:center;
+  padding:32px 0;border-bottom:1px solid var(--line);transition:.25s
 }
-.case-one{background:#132333}
-.case-two{background:#4a3b2a}
-.case-three{background:#142d2a}
-.case-four{background:#1d1e26}
-.case-layout{
-  min-height:100svh;display:grid;grid-template-columns:.95fr 1.05fr;
-}
-.case-copy{
-  padding:112px 60px 70px max(28px,calc((100vw - var(--max))/2));
-  display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(255,255,255,.14)
-}
-.case-copy .case-no{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.52)}
-.case-copy h3{font-size:clamp(3rem,6vw,6.7rem);line-height:.9;letter-spacing:-.055em;margin:20px 0 28px}
-.case-copy p{max-width:620px;color:rgba(255,255,255,.68);font-size:1rem;line-height:1.7}
-.case-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
-.case-tags span{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 11px;font-size:.68rem}
-.case-visual{
-  padding:110px max(28px,calc((100vw - var(--max))/2)) 70px 56px;
-  display:flex;align-items:center;justify-content:center;
-}
-.visual-board{width:100%;max-width:630px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.12);padding:28px;backdrop-filter:blur(10px)}
-.visual-board .minihead{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.visual-board .minihead strong{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em}
-.visual-board .minihead span{font-size:.68rem;opacity:.5}
-.big-metric{font-size:clamp(4rem,8vw,8rem);font-weight:900;letter-spacing:-.07em;line-height:.9}
-.big-metric small{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6;font-weight:700}
-.card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
-.micro{padding:18px;border:1px solid rgba(255,255,255,.13);min-height:110px}
-.micro b{display:block;font-size:1.5rem;margin-bottom:12px}
-.micro span{font-size:.68rem;opacity:.55}
-.steps{display:grid;gap:10px;margin-top:24px}
-.step{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
-.step i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
-.step strong{font-size:.78rem}.step span{font-size:.68rem;opacity:.5}
+.case:hover{padding-left:14px}
+.case-no{font-family:Georgia,"Times New Roman",serif;font-size:2.6rem;color:#c3b49f}
+.case h3{font-family:Georgia,"Times New Roman",serif;font-size:2.2rem;font-weight:500;margin:0 0 8px}
+.case p{margin:0;color:#66696c;line-height:1.6}
+.case-tags{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.case-tags span{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:.66rem;background:#faf7f2}
 
-.journey{background:var(--paper);color:var(--ink);padding:110px 0}
-.journey-top{display:grid;grid-template-columns:.45fr 1.55fr;gap:60px;margin-bottom:60px}
-.journey-top h2{font-size:clamp(3rem,6.7vw,7rem);line-height:.93;letter-spacing:-.055em;margin:0}
-.journey-top p{color:#606569;max-width:520px;margin-top:18px}
-.timeline{border-top:1px solid var(--darkline)}
-.role{
-  display:grid;grid-template-columns:120px 1.1fr .9fr 120px;
-  gap:24px;padding:24px 0;border-bottom:1px solid var(--darkline);align-items:center;
-  transition:.25s;
-}
-.role:hover{padding-left:14px;background:rgba(0,0,0,.018)}
-.role .year{font-weight:800;color:#6d655c}.role .title{font-size:1.06rem;font-weight:800}.role .company{color:#5e6266}.role .city{text-align:right;color:#8c8e91;font-size:.8rem}
+.journey{background:var(--night);color:#fff;padding:100px 0}
+.journey .section-head h2{color:#fff}.journey .label{color:var(--gold2)}
+.timeline{border-top:1px solid var(--lightline)}
+.role{display:grid;grid-template-columns:130px 1.1fr .9fr 120px;gap:24px;padding:24px 0;border-bottom:1px solid var(--lightline);align-items:center}
+.role .year{color:var(--gold2);font-weight:800}.role .title{font-weight:800}.role .company{color:rgba(255,255,255,.62)}.role .city{text-align:right;color:rgba(255,255,255,.4);font-size:.78rem}
 
-.credentials{background:#111820;padding:100px 0}
-.cred-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
-.credentials h2{font-size:clamp(3rem,6vw,6.2rem);line-height:.93;letter-spacing:-.055em;margin:0}
-.cred-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:40px}
-.cred{padding:22px 16px;border:1px solid rgba(255,255,255,.14);text-align:center;font-weight:800}
-.domain-list{border-top:1px solid rgba(255,255,255,.14)}
-.domain{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.68)}
-.domain b{color:white}
+.credentials{background:#191d20;color:#fff;padding:95px 0}
+.cred-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:76px}
+.credentials h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,5vw,5.5rem);line-height:.96;font-weight:500;margin:0}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px}
+.cert{border:1px solid var(--lightline);padding:20px;text-align:center;font-weight:850}
+.domains{border-top:1px solid var(--lightline)}
+.domain{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--lightline);color:rgba(255,255,255,.58)}
+.domain b{color:#fff}
 
-.contact{background:var(--gold);color:#17130e;min-height:92svh;display:grid;align-items:end}
-.contact .wrap{padding:100px 0 60px}
-.contact h2{font-size:clamp(4rem,9vw,9.3rem);line-height:.82;letter-spacing:-.07em;margin:16px 0 38px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;border-top:1px solid rgba(0,0,0,.25);padding-top:30px}
-.contact-copy{font-size:1.12rem;max-width:560px;line-height:1.6}
-.contact-links{display:grid}
-.contact-links a{padding:16px 0;border-bottom:1px solid rgba(0,0,0,.25);display:flex;justify-content:space-between;font-weight:800}
+.contact{background:var(--gold);color:#17130f;min-height:82svh;display:grid;align-items:end}
+.contact .wrap{padding:90px 0 55px}
+.contact h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(4rem,9vw,9rem);line-height:.83;letter-spacing:-.065em;font-weight:500;margin:14px 0 36px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;border-top:1px solid rgba(0,0,0,.25);padding-top:28px}
+.contact-copy{font-size:1.08rem;line-height:1.6}
+.contact-links a{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(0,0,0,.25);font-weight:850}
 .contact-links a:after{content:"↗"}
 
-@media (max-width:980px){
-  .navlinks,.section-dot{display:none}
-  .topbar{padding:18px 18px}
-  .wrap{width:min(calc(100% - 30px),var(--max))}
-  .hero-grid{grid-template-columns:1fr}
-  .hero-portrait{position:absolute;inset:0;height:68svh;min-height:0}
-  .hero-portrait:before{
-    background:
-      linear-gradient(180deg,rgba(7,16,29,.02) 0%,rgba(7,16,29,.25) 45%,var(--navy) 89%),
-      linear-gradient(90deg,rgba(7,16,29,.24),transparent 70%);
-  }
-  .hero-portrait img{object-position:51% 18%}
-  .hero-copy{min-height:100svh;padding:69svh 15px 160px 15px}
-  .hero-index{display:none}
-  .hero .display{font-size:clamp(4rem,18vw,6.4rem)}
-  .hero-deck{font-size:1.05rem}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hero-stat{padding:15px 18px}
-  .hero-stat:nth-child(2){border-right:0}
-  .hero-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .profile-grid{grid-template-columns:1fr}
-  .profile-side{min-height:42svh;padding:90px 20px 44px;border-right:0;border-bottom:1px solid var(--darkline)}
-  .profile-side .big-no{font-size:8rem}
-  .profile-main{padding:64px 20px 70px}
-  .profile-main .body{columns:1}
-  .dashboard{padding:86px 0}
-  .dashboard-head{display:block}.dashboard-head p{margin-top:24px}
-  .dash-grid{grid-template-columns:1fr}
-  .case-layout{grid-template-columns:1fr}
-  .case-copy,.case-visual{padding:86px 20px 54px}
-  .case-copy{border-right:0;border-bottom:1px solid rgba(255,255,255,.14);min-height:58svh}
-  .case-visual{min-height:58svh}
-  .journey-top,.cred-grid,.contact-grid{grid-template-columns:1fr}
-  .role{grid-template-columns:85px 1fr}.role .company{grid-column:2}.role .city{display:none}
-  .cred-list{grid-template-columns:repeat(2,1fr)}
-  .contact{min-height:auto}.contact .wrap{padding:92px 0 48px}
+@media(max-width:1020px){
+  .topbar-inner{grid-template-columns:1fr auto}.menu{display:none}
+  .hero-grid{display:block}
+  .hero-copy{min-height:100svh;padding:115px 20px 195px;background:linear-gradient(180deg,rgba(246,241,233,.96),rgba(246,241,233,.76) 52%,rgba(246,241,233,.2) 74%,transparent)}
+  .hero-photo{position:absolute;inset:82px 0 0;height:calc(100svh - 82px);min-height:0;z-index:0}
+  .hero-photo:before{background:linear-gradient(180deg,rgba(246,241,233,.35),transparent 30%,rgba(17,20,23,.16))}
+  .hero-photo img{object-position:54% 12%}
+  .side-rail{display:none}
+  .stats-strip{right:0;height:auto;grid-template-columns:1fr 1fr}
+  .stat{padding:15px 18px}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .mission,.dash-grid,.cred-grid,.contact-grid{grid-template-columns:1fr}
+  .mission-image{min-height:66svh}.mission-quote{min-height:54svh}
+  .section-head{grid-template-columns:1fr;gap:14px}
+  .case{grid-template-columns:72px 1fr}.case-tags{grid-column:2;justify-content:flex-start}
+  .role{grid-template-columns:90px 1fr}.role .company{grid-column:2}.role .city{display:none}
 }
-@media (max-width:560px){
-  .hero-stats{position:absolute}
-  .hero-stat strong{font-size:1.22rem}
-  .hero-stat span{font-size:.61rem}
-  .hero-portrait .stamp{width:94px;height:94px;right:15px;top:76px}
-  .profile-main h2,.dashboard h2,.case-intro h2,.journey-top h2,.credentials h2{font-size:3.25rem}
-  .metric-grid{grid-template-columns:1fr}
-  .arc-wrap{grid-template-columns:1fr;text-align:center}.arc{margin:auto}
-  .bar-row{grid-template-columns:105px 1fr 34px;font-size:.68rem}
-  .case-copy h3{font-size:3.55rem}
-  .card-row{grid-template-columns:1fr}
-  .role{grid-template-columns:1fr;gap:7px}.role .company{grid-column:auto}
-  .cred-list{grid-template-columns:1fr 1fr}
-  .contact h2{font-size:4.3rem}
+@media(max-width:600px){
+  .wrap{width:min(calc(100% - 28px),var(--max))}
+  .topbar-inner{width:calc(100% - 28px);height:72px}.topbar{height:72px}
+  .cta{padding:11px 14px}.logo strong{font-size:.95rem}
+  .hero{padding-top:72px}.hero-photo{inset:72px 0 0;height:calc(100svh - 72px)}
+  .hero-copy{padding:84px 14px 195px}
+  .hero h1{font-size:clamp(4rem,17vw,5.8rem)}
+  .hero-deck{font-size:1rem;max-width:92%}
+  .hero-actions{align-items:stretch;flex-direction:column;width:210px}
+  .stats-strip{grid-template-columns:1fr 1fr}.stat b{font-size:1.55rem}.stat span{font-size:.6rem}
+  .mission-overlay{padding:60px 8% 44px}.mission-overlay h2{font-size:3.25rem}
+  .mission-quote{padding:60px 8%}.mission-quote blockquote{font-size:2.45rem}
+  .dashboard,.impact,.journey,.credentials{padding:78px 0}
+  .section-head h2,.credentials h2{font-size:3.3rem}
+  .metric-grid{grid-template-columns:1fr}.outcome{grid-template-columns:1fr;text-align:center}.ring{margin:auto}
+  .case{grid-template-columns:1fr;gap:10px;padding:26px 0}.case-tags{grid-column:auto}.case h3{font-size:1.8rem}.case-no{font-size:1.3rem}
+  .role{grid-template-columns:1fr;gap:6px}.role .company{grid-column:auto}
+  .certs{grid-template-columns:1fr 1fr}
+  .contact h2{font-size:4.35rem}
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  .ticker-track{animation:none}
-  .panel.in .fill{transition:none}
-}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-
-<div class="site-progress" id="progress"></div>
+<div class="progress" id="progress"></div>
 
 <header class="topbar">
-  <div class="logo">MO <span>/ EXECUTIVE PORTFOLIO</span></div>
-  <nav class="navlinks" aria-label="Primary navigation">
-    <a href="#profile">Profile</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#cases">Impact</a>
-    <a href="#journey">Journey</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="topbar-inner">
+    <a class="logo" href="#home">
+      <strong>Mahmoud Otoom</strong>
+      <span>People · Technology · Impact</span>
+    </a>
+    <nav class="menu" aria-label="Primary navigation">
+      <a href="#home">Home</a><a href="#profile">About</a><a href="#impact">Impact</a><a href="#journey">Experience</a><a href="#credentials">Credentials</a>
+    </nav>
+    <a class="cta" href="#contact">Let’s Talk</a>
+  </div>
 </header>
 
-<nav class="section-dot" aria-label="Section navigation">
-  <a href="#hero" class="active" aria-label="Hero"></a>
-  <a href="#profile" aria-label="Profile"></a>
-  <a href="#dashboard" aria-label="Dashboard"></a>
-  <a href="#cases" aria-label="Case studies"></a>
-  <a href="#journey" aria-label="Career journey"></a>
-  <a href="#contact" aria-label="Contact"></a>
-</nav>
-
-<section class="scene hero" id="hero">
-  <div class="hero-index">Executive Technology Portfolio · 2026</div>
+<section class="hero" id="home">
   <div class="hero-grid">
-    <div class="wrap hero-copy reveal">
-      <div class="hero-kicker label">Senior IT Project & Program Manager</div>
-      <h1 class="display">Mahmoud<br>Otoom</h1>
-      <p class="hero-deck">Leading complex technology transformation across cybersecurity, infrastructure, cloud, telecom, PMO and governance — with executive visibility and delivery discipline built in.</p>
-      <div class="scroll-cue"><i></i> Scroll to enter the portfolio</div>
+    <div class="hero-copy reveal">
+      <div class="hero-kicker label">IT Leadership</div>
+      <h1>Technology.<br>People.<br><em>Better</em><br>Tomorrows.</h1>
+      <p class="hero-deck">Senior IT Project & Program Manager driving digital transformation across cybersecurity, infrastructure, telecom, PMO and governance through people, disciplined delivery and measurable outcomes.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#profile">Explore My Story</a>
+        <a class="secondary" href="#impact">View Impact</a>
+      </div>
     </div>
 
-    <div class="hero-portrait" aria-label="Portrait of Mahmoud Otoom">
+    <div class="hero-photo">
       <img src="mahmoud-otoom.jpg" alt="Professional portrait of Mahmoud Otoom">
-      <div class="stamp">Technology<br>Transformation<br>Delivered<br>at Scale</div>
     </div>
-  </div>
 
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>14+ Years</strong><span>Technology delivery leadership</span></div>
-    <div class="hero-stat"><strong>300+</strong><span>Projects & delivery engagements</span></div>
-    <div class="hero-stat"><strong>SAR 50M</strong><span>Largest managed budget</span></div>
-    <div class="hero-stat"><strong>100+</strong><span>Team members at scale</span></div>
-  </div>
-</section>
-
-<div class="ticker">
-  <div class="ticker-track">
-    <span>Cybersecurity</span><span>Digital Transformation</span><span>PMO & Governance</span><span>Cloud</span><span>Data Centers</span><span>Enterprise Networks</span><span>Telecom</span>
-    <span>Cybersecurity</span><span>Digital Transformation</span><span>PMO & Governance</span><span>Cloud</span><span>Data Centers</span><span>Enterprise Networks</span><span>Telecom</span>
-  </div>
-</div>
-
-<section class="scene profile" id="profile">
-  <div class="wrap profile-grid">
-    <aside class="profile-side reveal">
+    <aside class="side-rail">
       <div>
-        <div class="label">01 / Executive Profile</div>
-        <div class="big-no">14</div>
+        <div class="label" style="color:rgba(255,255,255,.55)">Turning ideas into lasting impact</div>
+        <div class="rule"></div>
+        <div class="stack"><span>Strategy</span><span>Execution</span><span>People</span><span>Impact</span></div>
       </div>
-      <p>Years of progressive leadership from hands-on telecom implementation to enterprise technology transformation.</p>
+      <div class="side-quote">“Technology serves people. People build better tomorrows.”<span>Mahmoud Otoom</span></div>
     </aside>
+  </div>
 
-    <div class="profile-main reveal">
-      <h2 class="serif">From the field up. Now operating at executive delivery level.</h2>
-      <p class="lead">I work where business priorities, technical complexity, governance, risk and delivery accountability intersect.</p>
-      <div class="body">
-        Mahmoud Otoom is a Senior IT Project & Program Manager with 14+ years of experience across cybersecurity, cloud, enterprise infrastructure, telecom and digital transformation environments. His work spans project governance, executive reporting, RAID and dependency management, vendor coordination, budget control and cross-functional delivery.
-        <br><br>
-        His career evolved from implementation engineering and telecom rollouts into senior leadership of enterprise technology portfolios, including SAMA compliance, cybersecurity remediation, OT security, data center modernization, ERP transformation and executive Power BI reporting.
-      </div>
-      <div class="pullquote">
-        <strong>“Complex delivery becomes manageable when the right decisions are made visible.”</strong>
-        <span>Operating principle</span>
-      </div>
-    </div>
+  <div class="stats-strip">
+    <div class="stat"><b>14+</b><span>Years Experience</span></div>
+    <div class="stat"><b>300+</b><span>Projects & Engagements</span></div>
+    <div class="stat"><b>SAR 50M</b><span>Largest Managed Budget</span></div>
+    <div class="stat"><b>100+</b><span>Team Members Led</span></div>
   </div>
 </section>
 
-<section class="scene dashboard" id="dashboard">
-  <div class="wrap">
-    <div class="dashboard-head reveal">
-      <div>
-        <div class="label" style="color:var(--teal);margin-bottom:18px">02 / Executive Dashboard</div>
-        <h2>Career scale, translated into executive signal.</h2>
-      </div>
-      <p>Selected scale indicators based on Mahmoud’s career profile and confirmed delivery figures.</p>
+<section class="mission" id="profile">
+  <div class="mission-image reveal">
+    <div class="skyline" aria-hidden="true">
+      <div class="tower t1"></div><div class="tower t2"></div><div class="tower t3"></div><div class="tower t4"></div><div class="tower t5"></div><div class="tower t6"></div><div class="tower t7"></div><div class="tower t8"></div><div class="tower t9"></div>
     </div>
+    <div class="mission-overlay">
+      <div class="label" style="color:var(--gold2)">My Mission</div>
+      <h2>Transforming organizations through technology, people and purpose.</h2>
+      <p>I help organizations turn complex challenges into real opportunities — building secure, scalable and future-ready digital ecosystems that create lasting value.</p>
+    </div>
+  </div>
+  <div class="mission-quote reveal">
+    <div class="quote-mark">“</div>
+    <blockquote>Real transformation happens when technology, people and purpose move in the same direction.</blockquote>
+    <div class="signature"><strong>Mahmoud Otoom</strong>Senior IT Project & Program Manager</div>
+  </div>
+</section>
 
+<section class="dashboard">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">02 / Executive Dashboard</div>
+      <h2>Career scale, translated into executive signal.</h2>
+    </div>
     <div class="dash-grid">
       <div class="panel reveal">
-        <div class="panel-title"><strong>Delivery scale</strong><span>Career snapshot</span></div>
+        <div class="panel-title">Delivery scale</div>
         <div class="metric-grid">
-          <div class="metric"><div><span class="unit">Experience</span><div class="num count" data-target="14" data-suffix="+">0</div></div><div class="cap">Years across technology delivery and transformation.</div></div>
-          <div class="metric"><div><span class="unit">Engagements</span><div class="num count" data-target="300" data-suffix="+">0</div></div><div class="cap">Projects and delivery engagements across multiple sectors.</div></div>
-          <div class="metric"><div><span class="unit">Largest budget</span><div class="num">50M</div></div><div class="cap">SAR — largest managed program/project budget.</div></div>
-          <div class="metric"><div><span class="unit">Team scale</span><div class="num count" data-target="100" data-suffix="+">0</div></div><div class="cap">Team members across delivery ecosystems.</div></div>
+          <div class="metric"><small>Experience</small><strong>14+</strong><span>Years across technology delivery and transformation.</span></div>
+          <div class="metric"><small>Engagements</small><strong>300+</strong><span>Projects and delivery engagements.</span></div>
+          <div class="metric"><small>Largest budget</small><strong>50M</strong><span>SAR managed at project/program scale.</span></div>
+          <div class="metric"><small>Team scale</small><strong>100+</strong><span>Team members across delivery ecosystems.</span></div>
         </div>
       </div>
-
       <div class="panel reveal">
-        <div class="panel-title"><strong>Transformation profile</strong><span>Leadership mix</span></div>
-        <div class="arc-wrap">
-          <div class="arc"><strong>30%</strong></div>
-          <div class="arc-text"><h3>Security incident reduction</h3><p>Documented outcome from structured risk management and security-awareness initiatives.</p></div>
-        </div>
-        <div class="bars">
-          <div class="bar-row"><span>Cybersecurity</span><div class="track"><div class="fill" data-w="92"></div></div><b>92</b></div>
-          <div class="bar-row"><span>Governance / PMO</span><div class="track"><div class="fill" data-w="88"></div></div><b>88</b></div>
-          <div class="bar-row"><span>Infrastructure</span><div class="track"><div class="fill" data-w="84"></div></div><b>84</b></div>
-          <div class="bar-row"><span>Transformation</span><div class="track"><div class="fill" data-w="79"></div></div><b>79</b></div>
-        </div>
-        <p style="margin:20px 0 0;color:rgba(255,255,255,.42);font-size:.68rem">Visual emphasis only — not competency scores.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="case-intro" id="cases">
-  <div class="wrap reveal">
-    <div class="label" style="color:#71695e;margin-bottom:18px">03 / Selected Impact</div>
-    <h2>Four stories that define the portfolio.</h2>
-    <p class="sub">Not a list of responsibilities — selected evidence of governance, transformation, cybersecurity delivery and measurable operational impact.</p>
-  </div>
-</section>
-
-<section class="scene case case-one">
-  <div class="case-layout">
-    <div class="case-copy reveal">
-      <div>
-        <div class="case-no">Case 01 · Cybersecurity & Compliance</div>
-        <h3>SAMA compliance under executive governance.</h3>
-        <p>Coordinated cross-functional delivery across Cybersecurity, SOC, IT and business teams, with governance, RAID/remediation tracking, escalation and executive reporting supporting timely closure of delivery concerns.</p>
-        <div class="case-tags"><span>SAMA</span><span>SOC</span><span>RAID</span><span>Executive Reporting</span></div>
-      </div>
-      <div class="label" style="color:rgba(255,255,255,.45)">STC Bank · Riyadh</div>
-    </div>
-    <div class="case-visual reveal">
-      <div class="visual-board">
-        <div class="minihead"><strong>Governance cockpit</strong><span>Illustrative layout</span></div>
-        <div class="big-metric">01 <small>regulated delivery stream</small></div>
-        <div class="steps">
-          <div class="step"><i></i><strong>Cross-functional ownership</strong><span>Aligned</span></div>
-          <div class="step"><i></i><strong>RAID & remediation control</strong><span>Tracked</span></div>
-          <div class="step"><i></i><strong>Executive escalation path</strong><span>Active</span></div>
-          <div class="step"><i></i><strong>Delivery closure discipline</strong><span>Governed</span></div>
+        <div class="panel-title">Documented outcome</div>
+        <div class="outcome">
+          <div class="ring"><b>30%</b></div>
+          <div><h3>Security incident reduction</h3><p>Achieved through structured risk management and security-awareness initiatives while delivering integrated ICT services.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="scene case case-two">
-  <div class="case-layout">
-    <div class="case-copy reveal">
-      <div>
-        <div class="case-no">Case 02 · Cybersecurity Portfolio</div>
-        <h3>Complex security programs across enterprise and OT.</h3>
-        <p>Directed initiatives spanning data centers, enterprise networks, WAF, DLP, VAPT, SOC, EDR and OT-security solutions while aligning vendors, multidisciplinary technical teams and stakeholders.</p>
-        <div class="case-tags"><span>WAF</span><span>DLP</span><span>VAPT</span><span>EDR</span><span>OT Security</span></div>
-      </div>
-      <div class="label" style="color:rgba(255,255,255,.45)">Prosecure · Infratech</div>
-    </div>
-    <div class="case-visual reveal">
-      <div class="visual-board">
-        <div class="minihead"><strong>Security delivery matrix</strong><span>Multi-domain portfolio</span></div>
-        <div class="big-metric">7+ <small>security domains</small></div>
-        <div class="card-row">
-          <div class="micro"><b>OT</b><span>Industrial security & control environments</span></div>
-          <div class="micro"><b>SOC</b><span>Detection, response and operational alignment</span></div>
-          <div class="micro"><b>DC</b><span>Data center and enterprise network security</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="scene case case-three">
-  <div class="case-layout">
-    <div class="case-copy reveal">
-      <div>
-        <div class="case-no">Case 03 · Digital Transformation</div>
-        <h3>ERP transformation with visibility built in.</h3>
-        <p>Led an ERP transformation initiative including a Power BI executive dashboard, cross-department workflow integration and structured evaluation of ERP vendors.</p>
-        <div class="case-tags"><span>ERP</span><span>Power BI</span><span>Workflow</span><span>Vendor Evaluation</span></div>
-      </div>
-      <div class="label" style="color:rgba(255,255,255,.45)">Transformation initiative</div>
-    </div>
-    <div class="case-visual reveal">
-      <div class="visual-board">
-        <div class="minihead"><strong>Transformation architecture</strong><span>Business + delivery</span></div>
-        <div class="big-metric">360° <small>visibility</small></div>
-        <div class="steps">
-          <div class="step"><i></i><strong>Cross-department workflows</strong><span>Integrated</span></div>
-          <div class="step"><i></i><strong>Executive KPI visibility</strong><span>Power BI</span></div>
-          <div class="step"><i></i><strong>ERP vendor evaluation</strong><span>Structured</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="scene case case-four">
-  <div class="case-layout">
-    <div class="case-copy reveal">
-      <div>
-        <div class="case-no">Case 04 · Measurable Risk Reduction</div>
-        <h3>30% fewer security incidents.</h3>
-        <p>Applied structured risk management and security-awareness initiatives while delivering integrated ICT services across MPLS, VPN, Azure, VPS, colocation and security platforms.</p>
-        <div class="case-tags"><span>30% Reduction</span><span>Azure</span><span>ICT</span><span>Risk Management</span></div>
-      </div>
-      <div class="label" style="color:rgba(255,255,255,.45)">SaharaNet · Riyadh</div>
-    </div>
-    <div class="case-visual reveal">
-      <div class="visual-board">
-        <div class="minihead"><strong>Outcome</strong><span>Documented impact</span></div>
-        <div class="big-metric">−30% <small>security incidents</small></div>
-        <div class="card-row">
-          <div class="micro"><b>Risk</b><span>Structured risk management</span></div>
-          <div class="micro"><b>Awareness</b><span>Security-awareness initiatives</span></div>
-          <div class="micro"><b>ICT</b><span>Integrated service delivery</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="scene journey" id="journey">
+<section class="impact" id="impact">
   <div class="wrap">
-    <div class="journey-top reveal">
-      <div>
-        <div class="label" style="color:#7a7268">04 / Career Journey</div>
-        <p>Progression from implementation engineering into enterprise project and program leadership.</p>
-      </div>
-      <h2 class="serif">Built from the field up.</h2>
+    <div class="section-head reveal">
+      <div class="label">03 / Selected Impact</div>
+      <h2>Four stories that define the portfolio.</h2>
+    </div>
+    <div class="case-list reveal">
+      <article class="case"><div class="case-no">01</div><div><h3>SAMA compliance & cyber remediation governance.</h3><p>Cross-functional coordination, RAID/remediation control, executive reporting and escalation across Cybersecurity, SOC, IT and business teams.</p></div><div class="case-tags"><span>SAMA</span><span>SOC</span><span>RAID</span><span>Governance</span></div></article>
+      <article class="case"><div class="case-no">02</div><div><h3>Enterprise & OT cybersecurity programs.</h3><p>Programs spanning data centers, WAF, DLP, VAPT, SOC, EDR and OT-security solutions with vendor and stakeholder alignment.</p></div><div class="case-tags"><span>WAF</span><span>DLP</span><span>EDR</span><span>OT Security</span></div></article>
+      <article class="case"><div class="case-no">03</div><div><h3>ERP transformation with executive visibility.</h3><p>Power BI executive dashboard, cross-department workflow integration and structured evaluation of ERP vendors.</p></div><div class="case-tags"><span>ERP</span><span>Power BI</span><span>Workflow</span><span>Vendors</span></div></article>
+      <article class="case"><div class="case-no">04</div><div><h3>30% reduction in security incidents.</h3><p>Structured risk management and security-awareness initiatives alongside integrated ICT service delivery.</p></div><div class="case-tags"><span>30% Reduction</span><span>Azure</span><span>ICT</span><span>Risk</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">04 / Career Journey</div>
+      <h2>Built from the field up.</h2>
     </div>
     <div class="timeline reveal">
       <div class="role"><div class="year">2026</div><div class="title">Senior Project Manager</div><div class="company">STC Bank</div><div class="city">Riyadh</div></div>
@@ -609,33 +405,31 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<section class="credentials">
+<section class="credentials" id="credentials">
   <div class="wrap cred-grid">
     <div class="reveal">
-      <div class="label" style="color:var(--teal);margin-bottom:20px">05 / Credentials</div>
+      <div class="label" style="color:var(--gold2);margin-bottom:18px">05 / Credentials</div>
       <h2>Governance discipline. Technical range.</h2>
-      <div class="cred-list">
-        <div class="cred">PMP®</div><div class="cred">PMI-ACP®</div><div class="cred">PMI-RMP®</div>
-        <div class="cred">P3O®</div><div class="cred">PSM-I™</div><div class="cred">PSPO-I™</div>
+      <div class="certs">
+        <div class="cert">PMP®</div><div class="cert">PMI-ACP®</div><div class="cert">PMI-RMP®</div>
+        <div class="cert">P3O®</div><div class="cert">PSM-I™</div><div class="cert">PSPO-I™</div>
       </div>
     </div>
-    <div class="reveal">
-      <div class="domain-list">
-        <div class="domain"><b>PMO & Governance</b><span>Executive controls</span></div>
-        <div class="domain"><b>Cybersecurity</b><span>Enterprise + OT</span></div>
-        <div class="domain"><b>Digital Transformation</b><span>ERP + workflows</span></div>
-        <div class="domain"><b>Cloud</b><span>Azure / VPS / Colocation</span></div>
-        <div class="domain"><b>Infrastructure</b><span>Data centers + networks</span></div>
-        <div class="domain"><b>Telecom</b><span>FTTH / 4G / RAN / MW</span></div>
-      </div>
+    <div class="domains reveal">
+      <div class="domain"><b>PMO & Governance</b><span>Executive controls</span></div>
+      <div class="domain"><b>Cybersecurity</b><span>Enterprise + OT</span></div>
+      <div class="domain"><b>Digital Transformation</b><span>ERP + workflows</span></div>
+      <div class="domain"><b>Cloud</b><span>Azure / VPS / Colocation</span></div>
+      <div class="domain"><b>Infrastructure</b><span>Data centers + networks</span></div>
+      <div class="domain"><b>Telecom</b><span>FTTH / 4G / RAN / MW</span></div>
     </div>
   </div>
 </section>
 
-<section class="scene contact" id="contact">
+<section class="contact" id="contact">
   <div class="wrap reveal">
     <div class="label">06 / Contact</div>
-    <h2 class="serif">Build what<br>matters.</h2>
+    <h2>Build what<br>matters.</h2>
     <div class="contact-grid">
       <div class="contact-copy">Senior IT Project & Program Management · Cybersecurity · PMO & Governance · Digital Transformation · Riyadh, Saudi Arabia</div>
       <div class="contact-links">
@@ -647,55 +441,17 @@ img{display:block;max-width:100%}
 </section>
 
 <script>
-const progress=document.getElementById('progress');
-const dots=[...document.querySelectorAll('.section-dot a')];
-const sections=['hero','profile','dashboard','cases','journey','contact'].map(id=>document.getElementById(id));
-
+const bar=document.getElementById('progress');
 function updateProgress(){
-  const h=document.documentElement;
-  const max=h.scrollHeight-h.clientHeight;
-  progress.style.width=(max?window.scrollY/max*100:0)+'%';
+  const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+  bar.style.width=(max?window.scrollY/max*100:0)+'%';
 }
-addEventListener('scroll',updateProgress,{passive:true}); updateProgress();
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
 
-const revealObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('in');
-      if(e.target.classList.contains('panel')){
-        e.target.querySelectorAll('.count').forEach(startCounter);
-      }
-    }
-  });
-},{threshold:.16});
-document.querySelectorAll('.reveal,.panel').forEach(el=>revealObs.observe(el));
-
-function startCounter(el){
-  if(el.dataset.done) return;
-  el.dataset.done='1';
-  const target=+el.dataset.target||0, suffix=el.dataset.suffix||'';
-  const start=performance.now(), dur=1100;
-  function tick(now){
-    const p=Math.min(1,(now-start)/dur);
-    const eased=1-Math.pow(1-p,3);
-    el.textContent=Math.round(target*eased)+suffix;
-    if(p<1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-const sectionObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const idx=sections.indexOf(e.target);
-      if(idx>-1){
-        dots.forEach(d=>d.classList.remove('active'));
-        if(dots[idx]) dots[idx].classList.add('active');
-      }
-    }
-  });
-},{threshold:.45});
-sections.forEach(s=>s&&sectionObs.observe(s));
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('in')});
+},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
