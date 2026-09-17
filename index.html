@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Mahmoud Otoom — Senior IT Project & Program Manager. Executive portfolio spanning cybersecurity, digital transformation, PMO & governance, infrastructure and telecom." />
+  <title>Mahmoud Otoom — Executive Technology Portfolio</title>
+  <style>
+    :root{
+      --ink:#101318; --paper:#f4f1eb; --paper-2:#ebe6dd; --muted:#6f726f;
+      --night:#0b1220; --night-2:#121d30; --electric:#8fe3d8; --gold:#c8a96b;
+      --line:rgba(16,19,24,.16); --max:1280px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--paper)}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .serif{font-family:Georgia,"Times New Roman",serif}
+    .shell{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+    .muted{color:var(--muted)}
+    .nav{position:fixed;inset:22px 24px auto;z-index:50;display:flex;justify-content:space-between;align-items:center;color:white;mix-blend-mode:difference;pointer-events:none}
+    .nav .brand,.nav .menu{pointer-events:auto}
+    .brand{font-weight:800;letter-spacing:-.02em}
+    .menu{display:flex;gap:18px;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em}
+    .menu a{opacity:.72}.menu a:hover{opacity:1}
+    section{position:relative;overflow:hidden}
+    .cover{min-height:100svh;background:var(--night);color:white;display:grid;align-items:end}
+    .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,18,32,.98) 0%,rgba(11,18,32,.83) 38%,rgba(11,18,32,.18) 66%,rgba(11,18,32,.28) 100%);z-index:1}
+    .portrait{position:absolute;inset:0 0 0 auto;width:min(65vw,980px);height:100%;object-fit:cover;object-position:60% center;filter:saturate(.9) contrast(1.02)}
+    .cover-content{position:relative;z-index:2;padding:clamp(120px,18vh,190px) 0 60px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:end}
+    h1{font-size:clamp(3.2rem,8vw,7.8rem);line-height:.86;letter-spacing:-.055em;margin:12px 0 24px;max-width:900px;font-weight:800}
+    .deck{font-size:clamp(1rem,1.6vw,1.35rem);max-width:690px;color:rgba(255,255,255,.82)}
+    .cover-meta{border-left:1px solid rgba(255,255,255,.28);padding-left:28px}
+    .cover-meta strong{display:block;font-size:1.8rem;margin-top:6px}
+    .cover-meta p{margin:0 0 18px;color:rgba(255,255,255,.66);font-size:.88rem}
+    .chapter{padding:110px 0}
+    .chapter-head{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:start;margin-bottom:54px}
+    .chapter-no{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+    .chapter h2{font-size:clamp(2.6rem,6vw,6rem);line-height:.95;letter-spacing:-.05em;margin:0;max-width:1050px}
+    .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+    .lead{font-size:clamp(1.35rem,2.4vw,2.15rem);line-height:1.35;margin:0}
+    .copy{font-size:1.02rem;color:#454947;max-width:620px}
+    .stats{background:var(--ink);color:white;padding:78px 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
+    .stat{padding:32px 28px;border-right:1px solid rgba(255,255,255,.18)}.stat:last-child{border-right:0}
+    .stat .n{font-size:clamp(2.5rem,5vw,5.2rem);line-height:1;font-weight:800;letter-spacing:-.05em}
+    .stat span{display:block;color:rgba(255,255,255,.64);margin-top:12px;font-size:.88rem}
+    .portfolio{background:var(--paper-2)}
+    .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+    .case{background:var(--paper-2);padding:42px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s ease,color .25s ease}
+    .case:hover{background:var(--night);color:white}
+    .case .index{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .case:hover .index,.case:hover p{color:rgba(255,255,255,.7)}
+    .case h3{font-size:clamp(1.8rem,3vw,3.4rem);line-height:1.02;letter-spacing:-.04em;margin:20px 0}
+    .case p{max-width:520px;color:#555b57;margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}.tag{border:1px solid currentColor;border-radius:999px;padding:6px 10px;font-size:.72rem;opacity:.7}
+    .dark{background:var(--night);color:white}
+    .dark .chapter-no,.dark .muted{color:rgba(255,255,255,.55)}
+    .timeline{display:grid;grid-template-columns:180px 1fr;gap:24px}
+    .timeline-list{border-top:1px solid rgba(255,255,255,.18)}
+    .role{display:grid;grid-template-columns:150px 1fr 1fr;gap:24px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.18);align-items:baseline}
+    .role .year{color:var(--electric);font-weight:700}.role .title{font-weight:700;font-size:1.05rem}.role .company{color:rgba(255,255,255,.6)}
+    .credentials{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+    .credential-card{border-top:1px solid var(--line);padding-top:24px}.credential-card h3{font-size:2rem;margin:0 0 14px}.credential-list{display:flex;flex-wrap:wrap;gap:10px}.pill{padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.45);font-size:.85rem}
+    .impact{background:var(--gold);color:#1c1812;padding:90px 0}
+    .impact-quote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,5.5vw,6.4rem);line-height:.98;letter-spacing:-.045em;margin:0;max-width:1150px}
+    .contact{padding:95px 0 120px;background:#f7f5f1}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end}
+    .contact h2{font-size:clamp(3rem,7vw,7rem);line-height:.9;letter-spacing:-.055em;margin:0}
+    .contact-links{display:grid;gap:10px;font-size:1.08rem}.contact-links a{border-bottom:1px solid var(--line);padding:14px 0;display:flex;justify-content:space-between}.contact-links a::after{content:"↗"}
+    .note{font-size:.78rem;color:var(--muted);margin-top:18px}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+    @media (max-width:900px){
+      .menu{display:none}.shell{width:min(100% - 28px,var(--max))}.cover::after{background:linear-gradient(180deg,rgba(11,18,32,.18),rgba(11,18,32,.32) 34%,rgba(11,18,32,.96) 70%)}
+      .portrait{width:100%;height:65%;object-position:58% 22%}.cover-content{grid-template-columns:1fr;padding-top:70svh}.cover-meta{border-left:0;border-top:1px solid rgba(255,255,255,.25);padding:20px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+      .chapter{padding:78px 0}.chapter-head,.intro-grid,.timeline,.credentials,.contact-grid{grid-template-columns:1fr}.chapter-head{gap:12px}.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.18)}
+      .case-grid{grid-template-columns:1fr}.role{grid-template-columns:95px 1fr}.role .company{grid-column:2}
+    }
+    @media (max-width:560px){.stats-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}.stat:last-child{border-bottom:0}.case{padding:30px;min-height:310px}.cover-meta{grid-template-columns:1fr 1fr}.role{grid-template-columns:1fr}.role .company{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <header class="nav" aria-label="Primary navigation">
+    <div class="brand">MO / Executive Portfolio</div>
+    <nav class="menu"><a href="#profile">Profile</a><a href="#portfolio">Portfolio</a><a href="#journey">Journey</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <section class="cover" id="top">
+    <img class="portrait" src="assets/mahmoud-otoom.jpg" alt="Professional portrait of Mahmoud Otoom" />
+    <div class="shell cover-content">
+      <div>
+        <div class="eyebrow">Executive Technology Portfolio · Riyadh</div>
+        <h1>Mahmoud<br>Otoom</h1>
+        <p class="deck">Senior IT Project & Program Manager shaping complex transformation across cybersecurity, infrastructure, telecom, PMO and governance.</p>
+      </div>
+      <aside class="cover-meta" aria-label="Executive profile highlights">
+        <div><p>Experience</p><strong>14+ Years</strong></div>
+        <div><p>Delivery scale</p><strong>300+ Engagements</strong></div>
+        <div><p>Largest budget</p><strong>SAR 50M</strong></div>
+        <div><p>Team scale</p><strong>100+ Members</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="profile">
+    <div class="shell">
+      <div class="chapter-head reveal"><div class="chapter-no">01 / Profile</div><h2 class="serif">From telecom networks to enterprise transformation.</h2></div>
+      <div class="intro-grid reveal">
+        <p class="lead">I lead technology programs where business priorities, technical complexity, governance, risk and delivery accountability meet.</p>
+        <div class="copy"><p>Across 14+ years, Mahmoud's career has evolved from hands-on telecom implementation into senior project and program leadership across cybersecurity, cloud, enterprise infrastructure, PMO and digital transformation environments.</p><p>His operating style centers on executive visibility, RAID discipline, cross-functional alignment, vendor coordination and turning complex delivery into clear decisions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Career statistics">
+    <div class="shell stats-grid reveal">
+      <div class="stat"><div class="n">14+</div><span>Years leading technology delivery</span></div>
+      <div class="stat"><div class="n">300+</div><span>Projects & delivery engagements</span></div>
+      <div class="stat"><div class="n">50M</div><span>SAR — largest managed budget</span></div>
+      <div class="stat"><div class="n">100+</div><span>Team members across delivery ecosystems</span></div>
+    </div>
+  </section>
+
+  <section class="chapter portfolio" id="portfolio">
+    <div class="shell">
+      <div class="chapter-head reveal"><div class="chapter-no">02 / Selected Impact</div><h2>Transformation, security and infrastructure — delivered at scale.</h2></div>
+      <div class="case-grid reveal">
+        <article class="case"><div><div class="index">Case 01 · Cybersecurity & Compliance</div><h3>SAMA compliance and cyber remediation governance.</h3><p>Coordinated cross-functional delivery across Cybersecurity, SOC, IT and business teams, with governance, RAID/remediation tracking, escalation and executive reporting supporting closure of delivery concerns.</p></div><div class="tags"><span class="tag">SAMA</span><span class="tag">SOC</span><span class="tag">Governance</span><span class="tag">RAID</span></div></article>
+        <article class="case"><div><div class="index">Case 02 · Cybersecurity Portfolio</div><h3>Complex enterprise and industrial security programs.</h3><p>Directed initiatives spanning data centers, enterprise networks, WAF, DLP, VAPT, SOC, EDR and OT-security solutions while aligning vendors, technical teams and stakeholders.</p></div><div class="tags"><span class="tag">WAF</span><span class="tag">DLP</span><span class="tag">EDR</span><span class="tag">OT Security</span></div></article>
+        <article class="case"><div><div class="index">Case 03 · Digital Transformation</div><h3>ERP transformation with executive visibility built in.</h3><p>Led an ERP transformation initiative including a Power BI executive dashboard, cross-department workflow integration and structured evaluation of ERP vendors.</p></div><div class="tags"><span class="tag">ERP</span><span class="tag">Power BI</span><span class="tag">Workflow</span><span class="tag">Vendor Selection</span></div></article>
+        <article class="case"><div><div class="index">Case 04 · Measurable Risk Reduction</div><h3>30% reduction in security incidents.</h3><p>Applied structured risk management and security-awareness initiatives while delivering integrated ICT services across MPLS, VPN, Azure, VPS, colocation and security platforms.</p></div><div class="tags"><span class="tag">30% Reduction</span><span class="tag">Azure</span><span class="tag">ICT</span><span class="tag">Risk</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter dark" id="journey">
+    <div class="shell">
+      <div class="chapter-head reveal"><div class="chapter-no">03 / Career Journey</div><h2 class="serif">Built from the field up — now operating at executive delivery level.</h2></div>
+      <div class="timeline reveal">
+        <div class="eyebrow muted">Selected roles</div>
+        <div class="timeline-list">
+          <div class="role"><div class="year">2026</div><div class="title">Senior Project Manager</div><div class="company">STC Bank · Riyadh</div></div>
+          <div class="role"><div class="year">2025–26</div><div class="title">Senior Project Manager</div><div class="company">Prosecure · Riyadh</div></div>
+          <div class="role"><div class="year">2024–25</div><div class="title">Senior Projects Manager</div><div class="company">Infratech · Al Khobar</div></div>
+          <div class="role"><div class="year">2023–24</div><div class="title">Projects Manager</div><div class="company">SaharaNet · Riyadh</div></div>
+          <div class="role"><div class="year">2020–22</div><div class="title">Technical Project Manager</div><div class="company">FiberHome · Amman</div></div>
+          <div class="role"><div class="year">2016–20</div><div class="title">Implementation Manager</div><div class="company">Nokia · Amman</div></div>
+          <div class="role"><div class="year">2011–16</div><div class="title">Engineering → Project Leadership</div><div class="company">UMNIAH · ZTE · FirstLink</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="credentials">
+    <div class="shell">
+      <div class="chapter-head reveal"><div class="chapter-no">04 / Credentials</div><h2>Governance discipline with technical range.</h2></div>
+      <div class="credentials reveal">
+        <div class="credential-card"><h3>Professional Certifications</h3><div class="credential-list"><span class="pill">PMP®</span><span class="pill">PMI-ACP®</span><span class="pill">PMI-RMP®</span><span class="pill">P3O®</span><span class="pill">PSM-I™</span><span class="pill">PSPO-I™</span></div></div>
+        <div class="credential-card"><h3>Core Domains</h3><div class="credential-list"><span class="pill">PMO & Governance</span><span class="pill">Cybersecurity</span><span class="pill">Digital Transformation</span><span class="pill">Cloud</span><span class="pill">Data Centers</span><span class="pill">Enterprise Networks</span><span class="pill">Telecom</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact"><div class="shell reveal"><p class="impact-quote">“Complex delivery becomes manageable when the right decisions are made visible.”</p></div></section>
+
+  <section class="contact" id="contact">
+    <div class="shell contact-grid reveal">
+      <div><div class="eyebrow muted">05 / Contact</div><h2 class="serif">Build what matters.</h2></div>
+      <div><div class="contact-links"><a href="mailto:eng.otoom@gmail.com">eng.otoom@gmail.com</a><a href="https://github.com/engmahmoud888" target="_blank" rel="noreferrer">GitHub / engmahmoud888</a></div><p class="note">Riyadh, Saudi Arabia · Senior IT Project & Program Management · Cybersecurity · PMO · Digital Transformation</p></div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      for (const entry of entries) if(entry.isIntersecting) entry.target.classList.add('in');
+    },{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
