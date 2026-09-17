@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06131f">
+<meta name="description" content="Mahmoud Otoom — Senior Project & Program Manager | PMO & Governance | Digital Transformation | Cybersecurity | IT Infrastructure | Telecom">
+<title>Mahmoud Otoom — Executive Portfolio</title>
+<style>
+:root{
+  --bg:#06131f;
+  --bg2:#0a1e2d;
+  --ink:#f3f7f9;
+  --muted:#9aa7b3;
+  --teal:#6fe0d4;
+  --teal2:#91f1e7;
+  --gold:#c99c5d;
+  --paper:#eee8dd;
+  --paper2:#f6f2eb;
+  --dark:#10171d;
+  --line:rgba(255,255,255,.13);
+  --darkline:rgba(16,23,29,.13);
+  --max:1420px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit}
+::selection{background:var(--teal);color:#041016}
+.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:850;color:var(--teal)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .85s ease,transform .85s ease}
+.reveal.in{opacity:1;transform:none}
+.progress{position:fixed;z-index:999;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--teal2));box-shadow:0 0 18px rgba(111,224,212,.45)}
+
+/* HERO — full bleed magazine cover */
+.hero{position:relative;min-height:100svh;overflow:hidden;background:#0a1420}
+.hero-media{position:absolute;inset:0}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:56% 12%;
+  transform:scale(1.02);transition:transform .2s linear
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(6,19,31,.96) 0%,rgba(6,19,31,.84) 30%,rgba(6,19,31,.24) 64%,rgba(6,19,31,.06) 100%),
+    linear-gradient(0deg,var(--bg) 0%,rgba(6,19,31,.96) 10%,rgba(6,19,31,.74) 24%,rgba(6,19,31,.14) 55%,rgba(6,19,31,0) 76%);
+}
+.hero-content{
+  position:relative;z-index:3;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:86px 0 52px
+}
+.hero-copy{max-width:880px;padding-bottom:18px}
+.hero-name{
+  margin:0;font-size:clamp(4.7rem,10.8vw,9.6rem);line-height:.82;letter-spacing:-.078em;font-weight:950;
+  text-wrap:balance
+}
+.hero-name .last{
+  display:block;color:transparent;-webkit-text-stroke:2px rgba(241,247,250,.48)
+}
+.role-row{display:flex;align-items:center;gap:18px;margin:22px 0 18px;max-width:760px}
+.role-row::before,.role-row::after{
+  content:"";height:3px;flex:1;background:linear-gradient(90deg,transparent,var(--teal))
+}
+.role-row::after{background:linear-gradient(90deg,var(--teal),transparent)}
+.role-row span{
+  flex:none;white-space:nowrap;color:var(--teal);font-weight:900;font-size:clamp(.78rem,1.25vw,1.05rem);
+  letter-spacing:.18em;text-transform:uppercase
+}
+.hero-deck{font-size:clamp(1rem,1.45vw,1.25rem);line-height:1.6;color:#d8e1e8;max-width:760px;margin:0}
+.hero-actions{display:flex;gap:14px;margin-top:28px}
+.btn{
+  padding:15px 24px;border:1px solid rgba(255,255,255,.25);font-size:.83rem;font-weight:850;
+  background:rgba(255,255,255,.03);backdrop-filter:blur(10px);transition:.35s ease
+}
+.btn:hover{transform:translateY(-3px);border-color:var(--teal)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:#111}
+
+/* ticker from CV header */
+.cv-ticker{position:relative;z-index:5;overflow:hidden;white-space:nowrap;background:rgba(5,17,28,.88);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px)}
+.cv-ticker-track{
+  display:inline-flex;min-width:200%;gap:40px;padding:14px 0;
+  font-size:.73rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#dbe6ed;
+  animation:ticker 24s linear infinite
+}
+.cv-ticker-track span::after{content:"◆";margin-left:40px;color:var(--teal);font-size:.52rem}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* narrative bio */
+.story{background:var(--paper);color:#111820;padding:72px 0 82px}
+.story-grid{display:grid;grid-template-columns:.36fr 1.64fr;gap:54px;align-items:start}
+.story-index{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:end;justify-content:start;column-gap:12px;row-gap:2px;color:#ddd4c7}.story-num{font-size:clamp(7rem,14vw,12rem);line-height:.78;font-weight:950;letter-spacing:-.08em}.story-years{font-size:clamp(1rem,2.2vw,1.65rem);letter-spacing:.28em;font-weight:950;color:#8b7558;writing-mode:vertical-rl;transform:rotate(180deg);padding-bottom:8px}.story-sub{grid-column:1 / -1;font-size:.72rem;letter-spacing:.17em;text-transform:uppercase;color:#81796e;font-weight:800;margin-top:8px}
+.story h2{font-size:clamp(2.7rem,5vw,5.1rem);line-height:.98;letter-spacing:-.05em;margin:0 0 24px;font-weight:500}
+.story p{font-size:clamp(1.08rem,1.75vw,1.45rem);line-height:1.75;color:#3f4952;margin:0;max-width:980px}
+.story p strong{color:#0e171f}
+
+/* KPIs */
+.kpis{background:linear-gradient(180deg,#0a1b2a,#06131f);padding:28px 0 72px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+.kpi{padding:28px 24px;min-height:182px;border-right:1px solid var(--line);position:relative;overflow:hidden}
+.kpi:last-child{border-right:0}
+.kpi::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(111,224,212,.08),transparent 44%);opacity:0;transition:.4s}
+.kpi:hover::before{opacity:1}
+.kpi small{display:block;color:var(--teal);font-size:.67rem;letter-spacing:.16em;text-transform:uppercase}
+.kpi .num{font-size:clamp(3rem,5.8vw,5.8rem);line-height:.9;font-weight:950;letter-spacing:-.06em;margin:18px 0 14px;font-variant-numeric:tabular-nums}
+.kpi p{margin:0;color:#aebbc7;font-size:.86rem}
+
+/* Live dashboard */
+.dashboard{padding:80px 0;background:var(--bg)}
+.dash-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}
+.dash-head h2{margin:8px 0 0;font-size:clamp(3rem,5.6vw,5.8rem);line-height:.94;letter-spacing:-.055em}
+.dash-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:20px}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.038),rgba(255,255,255,.017));padding:26px;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),transparent 72%)}
+.panel-title{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:#97a4b0;margin-bottom:18px}
+.chart-box{height:360px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.015)}
+.chart-box svg{width:100%;height:100%}.gridline{stroke:rgba(255,255,255,.06);stroke-width:1}
+.area{fill:url(#area);opacity:0}.line{fill:none;stroke:var(--teal);stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1500;stroke-dashoffset:1500}
+.dot{fill:var(--gold);opacity:0}
+.panel.in .line{animation:draw 2.2s cubic-bezier(.2,.8,.2,1) forwards}
+.panel.in .area{animation:areaIn .9s ease 1.05s forwards}
+.panel.in .dot{animation:dotIn .35s ease 1.55s forwards,pulse 2.2s ease 1.9s infinite}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes areaIn{to{opacity:.28}}@keyframes dotIn{to{opacity:1}}@keyframes pulse{50%{filter:drop-shadow(0 0 10px rgba(111,224,212,.55))}}
+.ring-wrap{text-align:center}.ring{--deg:0deg;width:min(66vw,330px);aspect-ratio:1;border-radius:50%;margin:10px auto 22px;background:conic-gradient(var(--teal) var(--deg),rgba(255,255,255,.09) 0);display:grid;place-items:center;position:relative}
+.ring::before{content:"";position:absolute;inset:16%;border-radius:50%;background:#081622}
+.ring-inner{position:relative;z-index:1}
+.ring-value{font-size:4rem;font-weight:950;font-variant-numeric:tabular-nums}
+.ring-copy{max-width:270px;margin:10px auto 0;color:#b8c4cd;font-size:.84rem;line-height:1.45}.ring-label{max-width:360px;margin:0 auto 22px;text-align:center}.ring-label strong{display:block;font-size:1.02rem;letter-spacing:.02em;margin-bottom:7px}.ring-label span{display:block;color:#aebbc5;font-size:.84rem;line-height:1.5}
+.bars{display:grid;gap:13px;margin-top:20px}
+.bar{display:grid;grid-template-columns:145px 1fr 34px;gap:12px;align-items:center;font-size:.72rem}
+.track{height:8px;background:rgba(255,255,255,.08);overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--teal2));transition:width 1.25s cubic-bezier(.2,.8,.2,1)}
+
+/* impact matrix */
+.impact{padding:72px 0;background:linear-gradient(180deg,#0a1a27,#07131f)}
+.impact-head h2{font-size:clamp(3rem,5.6vw,5.8rem);line-height:.94;letter-spacing:-.055em;margin:8px 0 28px}
+.matrix{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.tile{min-height:220px;padding:28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(13,48,47,.24),rgba(8,20,30,.58));position:relative;overflow:hidden;transition:.35s ease}
+.tile:hover{transform:translateY(-4px);border-color:rgba(111,224,212,.42)}
+.tile .idx{position:absolute;right:22px;top:12px;font-size:5rem;font-weight:950;opacity:.12}
+.tile .tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:850}
+.tile h3{font-size:clamp(1.6rem,2.8vw,2.8rem);line-height:1.06;margin:24px 0 12px}
+.tile p{margin:0;color:#b9c4cd;line-height:1.55}
+.tile.powerbi h3{margin-top:30px}
+.tile.powerbi h3 span{display:block;margin-bottom:10px}
+
+/* roadmap */
+.roadmap-section{background:var(--paper);color:#101820;padding:82px 0}
+.roadmap-section h2{font-size:clamp(3rem,5.2vw,5.7rem);line-height:.94;letter-spacing:-.055em;margin:8px 0 38px;font-weight:500}
+.roadmap{position:relative;padding-left:28px}
+.roadmap::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),#c8b18b,#a9b8c1)}
+.road{position:relative;display:grid;grid-template-columns:205px 1fr;gap:28px;padding:0 0 24px 24px;opacity:.18;transform:translateY(26px);transition:.75s ease}
+.road.in{opacity:1;transform:none}
+.road::before{content:"";position:absolute;left:-22px;top:19px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--gold);box-shadow:0 0 0 7px rgba(199,156,93,.14)}
+.road-time{padding-top:14px;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:#7d684e}
+.road-card{background:#fff;border:1px solid rgba(16,24,32,.08);padding:22px 24px;box-shadow:0 16px 38px rgba(15,20,26,.07)}
+.road-card h3{font-size:1.65rem;margin:0 0 4px;letter-spacing:-.035em}.road-card .company{font-weight:800;color:#28333c;margin-bottom:10px}.road-card p{color:#48545f;line-height:1.58;margin:0 0 10px}.road-card .projects{padding-top:9px;border-top:1px solid rgba(16,24,32,.08);font-size:.9rem}
+
+/* certifications — two side by side */
+.certs{padding:78px 0;background:#10171d}
+.certs h2{font-size:clamp(3rem,5vw,5.3rem);line-height:.95;letter-spacing:-.05em;margin:8px 0 28px}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:900px}
+.cert{padding:24px 18px;border:1px solid var(--line);background:rgba(255,255,255,.025);text-align:center;font-size:1.6rem;font-weight:900;opacity:0;transform:translateY(20px);transition:.65s ease}
+.cert.in{opacity:1;transform:none}
+.cert:hover{border-color:rgba(111,224,212,.44);transform:translateY(-4px)}
+
+/* contact */
+.contact{background:linear-gradient(135deg,#c99856,#d7b27d);color:#17120d;padding:78px 0 90px}
+.contact h2{font-size:clamp(4rem,8vw,7.2rem);line-height:.88;letter-spacing:-.07em;margin:8px 0 30px;font-weight:500}
+.contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:44px;border-top:1px solid rgba(23,18,13,.24);padding-top:28px}
+.brand-statement{font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.6;max-width:980px;margin:0 0 30px;color:#2d241b}.contact-copy{font-size:1.08rem;line-height:1.62;max-width:760px}.contact-copy strong{font-size:1.28rem}
+.contact-cards{display:grid;gap:12px}
+.contact-card{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid rgba(23,18,13,.18);background:rgba(255,255,255,.12);transition:.3s ease}
+.contact-card:hover{transform:translateX(4px);background:rgba(255,255,255,.18)}
+.icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(23,18,13,.09);flex:none}
+.icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.contact-card small{display:block;text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;opacity:.6;margin-bottom:3px}.contact-card b{font-size:1rem}
+
+/* sound control */
+.sound-btn{position:fixed;z-index:950;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(7,19,31,.72);backdrop-filter:blur(12px);display:grid;place-items:center;color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.sound-btn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8}
+.sound-btn.playing{border-color:rgba(111,224,212,.55);box-shadow:0 0 24px rgba(111,224,212,.18)}
+
+@media(max-width:1000px){
+  .story-grid,.dash-grid,.contact-grid{grid-template-columns:1fr}
+  .story-index{font-size:7rem}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .kpi:nth-child(2){border-right:0}.kpi:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .matrix{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .wrap{width:min(calc(100% - 28px),var(--max))}
+  .hero{min-height:100svh}
+  .hero-media img{object-position:62% 10%;transform:scale(1.01)}
+  .hero-media::after{
+    background:
+      linear-gradient(180deg,rgba(6,19,31,.06) 0%,rgba(6,19,31,.12) 35%,rgba(6,19,31,.68) 57%,var(--bg) 84%,var(--bg) 100%),
+      linear-gradient(90deg,rgba(6,19,31,.15),rgba(6,19,31,.03))
+  }
+  .hero-content{padding:62svh 0 22px;min-height:100svh}
+  .hero-copy{max-width:none}
+  .hero-name{font-size:clamp(4rem,21vw,6rem)}
+  .role-row{gap:10px;margin:14px 0 14px}
+  .role-row::before,.role-row::after{height:2px}
+  .role-row span{font-size:.68rem;letter-spacing:.11em}
+  .hero-deck{font-size:.98rem;line-height:1.55}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .btn{padding:13px 12px;text-align:center}
+  .cv-ticker-track{font-size:.63rem;padding:12px 0}
+  .story{padding:54px 0}.story-grid{gap:10px}.story-index{font-size:5.5rem}.story h2{font-size:2.6rem}.story p{font-size:1rem;line-height:1.7}
+  .kpis{padding-top:18px}.kpi{min-height:158px;padding:20px 17px}.kpi .num{font-size:2.6rem}.kpi p{font-size:.78rem}
+  .dashboard,.impact,.roadmap-section,.certs{padding:60px 0}
+  .dash-head{display:block}.dash-head h2,.impact-head h2,.roadmap-section h2,.certs h2{font-size:2.8rem}
+  .chart-box{height:270px}.panel{padding:20px}
+  .bar{grid-template-columns:1fr;gap:7px}.bar b{text-align:left}
+  .roadmap{padding-left:18px}.roadmap::before{left:8px}.road{grid-template-columns:1fr;gap:8px;padding-left:17px}.road::before{left:-19px}.road-time{padding-top:0}.road-card{padding:18px}.road-card h3{font-size:1.35rem}
+  .cert-grid{grid-template-columns:1fr 1fr;gap:10px}.cert{font-size:1.08rem;padding:18px 8px}
+  .contact{padding:62px 0 72px}.contact h2{font-size:4rem}.contact-copy{font-size:1rem}
+}
+@media(max-width:460px){
+  .hero-actions{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.cv-ticker-track{animation:none}.hero-media img{transform:none}
+}
+
+.career-chart{position:relative;padding-bottom:58px}
+.career-labels{position:absolute;left:5%;right:5%;bottom:12px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;text-align:center;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:#9eabb6;font-weight:800}
+.career-labels span{position:relative;padding-top:9px}
+.career-labels span::before{content:"";position:absolute;top:0;left:50%;width:1px;height:6px;background:rgba(255,255,255,.18)}
+.career-panel.in .d1{animation-delay:1.15s}.career-panel.in .d2{animation-delay:1.28s}.career-panel.in .d3{animation-delay:1.41s}.career-panel.in .d4{animation-delay:1.54s}.career-panel.in .d5{animation-delay:1.67s}.career-panel.in .d6{animation-delay:1.80s}
+.sound-btn.needs-gesture{animation:soundNudge 1.4s ease-in-out infinite;border-color:rgba(201,156,93,.72)}
+@keyframes soundNudge{50%{transform:scale(1.08);box-shadow:0 0 26px rgba(201,156,93,.24)}}
+@media(max-width:720px){.career-labels{font-size:.46rem;left:2%;right:2%;gap:3px}.career-chart{padding-bottom:54px}.story-index{grid-template-columns:auto auto}.story-sub{font-size:.61rem}}
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<section class="hero">
+  <div class="hero-media" id="heroMedia">
+    <img src="mahmoud-otoom.jpg" alt="Mahmoud Otoom professional portrait">
+  </div>
+  <div class="wrap hero-content">
+    <div class="hero-copy reveal">
+      <h1 class="hero-name">Mahmoud <span class="last">Otoom</span></h1>
+      <div class="role-row"><span>Senior Project &amp; Program Manager</span></div>
+      <p class="hero-deck">Technology transformation leader with 14+ years across cybersecurity, cloud, infrastructure and telecom — known for turning complex delivery into clear governance, aligned teams and measurable outcomes.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#story">My Story</a>
+        <a class="btn" href="#impact">View Impact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cv-ticker">
+  <div class="cv-ticker-track">
+    <span>PMO &amp; Governance</span><span>Digital Transformation</span><span>Cybersecurity</span><span>IT Infrastructure</span><span>Telecom</span>
+    <span>PMO &amp; Governance</span><span>Digital Transformation</span><span>Cybersecurity</span><span>IT Infrastructure</span><span>Telecom</span>
+  </div>
+</div>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-index reveal"><span class="story-num">14</span><span class="story-years">YEARS</span><span class="story-sub">of technology delivery leadership</span></div>
+    <div class="reveal">
+      <div class="eyebrow" style="color:#7d684e">My Story</div>
+      <h2 class="serif">From network rollouts to enterprise transformation.</h2>
+      <p>
+        I built my career from the field upward — starting with telecom implementation and transmission delivery, then moving through project management, network expansion, FTTH, infrastructure and enterprise technology programs. Over time, the scope grew from sites and networks to <strong>cybersecurity, cloud, PMO governance, executive reporting and digital transformation</strong>. Today, I lead complex programs by connecting business priorities with technical execution, keeping risks visible, decisions timely and teams aligned. What defines my work is not just delivery at scale, but the ability to create structure in complexity and turn technical programs into outcomes senior stakeholders can clearly see and act on.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="kpis">
+  <div class="wrap">
+    <div class="kpi-grid reveal">
+      <div class="kpi"><small>Experience</small><div class="num count" data-target="14" data-suffix="+">0</div><p>Years of technology delivery leadership.</p></div>
+      <div class="kpi"><small>Projects</small><div class="num count" data-target="500" data-suffix="+">0</div><p>Projects and delivery engagements.</p></div>
+      <div class="kpi"><small>Largest Budget</small><div class="num count" data-target="100" data-suffix="M">0</div><p>Managed at project and program scale.</p></div>
+      <div class="kpi"><small>Team Scale</small><div class="num count" data-target="100" data-suffix="+">0</div><p>Team members across delivery ecosystems.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard">
+  <div class="wrap">
+    <div class="dash-head reveal">
+      <div><h2>Live Signals</h2></div>
+    </div>
+    <div class="dash-grid">
+      <div class="panel reveal career-panel">
+        <div class="panel-title">Career Growth Signal</div>
+        <div class="chart-box career-chart">
+          <svg viewBox="0 0 900 420" preserveAspectRatio="none" aria-label="Career growth from telecom execution to governance leadership">
+            <defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#6fe0d4"/><stop offset="100%" stop-color="#6fe0d4" stop-opacity="0"/></linearGradient></defs>
+            <line class="gridline" x1="80" y1="82" x2="840" y2="82"/><line class="gridline" x1="80" y1="165" x2="840" y2="165"/><line class="gridline" x1="80" y1="248" x2="840" y2="248"/><line class="gridline" x1="80" y1="331" x2="840" y2="331"/>
+            <path class="area" d="M95 320 C170 303 205 287 265 260 S372 214 438 211 S552 157 620 151 S728 105 808 90 L808 360 L95 360 Z"/>
+            <path class="line" d="M95 320 C170 303 205 287 265 260 S372 214 438 211 S552 157 620 151 S728 105 808 90"/>
+            <g class="career-points">
+              <circle class="chart-dot d1" cx="95" cy="320" r="6"/><circle class="chart-dot d2" cx="245" cy="268" r="6"/><circle class="chart-dot d3" cx="400" cy="218" r="6"/><circle class="chart-dot d4" cx="555" cy="160" r="6"/><circle class="chart-dot d5" cx="690" cy="125" r="6"/><circle class="chart-dot d6" cx="808" cy="90" r="7"/>
+            </g>
+          </svg>
+          <div class="career-labels"><span>Telecom</span><span>Project Leadership</span><span>Infrastructure</span><span>Cybersecurity</span><span>Transformation</span><span>Governance</span></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <div class="panel-title">Transformation Profile</div>
+        <div class="ring-wrap">
+          <div class="ring" id="ring"><div class="ring-inner"><div class="ring-value count" data-target="30" data-suffix="%">0</div></div></div><div class="ring-label"><strong>Security Incident Reduction</strong><span>Through structured risk management &amp; security awareness.</span></div>
+        </div>
+        <div class="bars">
+          <div class="bar"><span>Cybersecurity</span><div class="track"><div class="fill" data-width="92"></div></div><b>92</b></div>
+          <div class="bar"><span>PMO &amp; Governance</span><div class="track"><div class="fill" data-width="88"></div></div><b>88</b></div>
+          <div class="bar"><span>Infrastructure</span><div class="track"><div class="fill" data-width="84"></div></div><b>84</b></div>
+          <div class="bar"><span>Digital Transformation</span><div class="track"><div class="fill" data-width="90"></div></div><b>90</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <div class="wrap">
+    <div class="impact-head reveal"><h2>Delivery Stories</h2></div>
+    <div class="matrix">
+      <article class="tile reveal"><div class="idx">01</div><div class="tag">Cybersecurity &amp; Compliance</div><h3>SAMA governance and remediation control.</h3><p>Executive reporting, RAID tracking, escalation and cross-functional coordination across Cybersecurity, SOC, IT and business teams.</p></article>
+      <article class="tile reveal"><div class="idx">02</div><div class="tag">Cybersecurity Portfolio</div><h3>Enterprise and OT security programs.</h3><p>WAF, DLP, VAPT, SOC, EDR, data centers and OT-security solutions delivered across complex stakeholder environments.</p></article>
+      <article class="tile reveal powerbi"><div class="idx">03</div><div class="tag">Digital Transformation</div><h3><span>Power BI</span>executive visibility built into ERP transformation.</h3><p>Cross-department workflow integration, executive dashboarding and structured ERP vendor evaluation.</p></article>
+      <article class="tile reveal"><div class="idx">04</div><div class="tag">Measured Outcome</div><h3>30% fewer security incidents.</h3><p>Structured risk management and security-awareness initiatives alongside integrated ICT delivery.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap-section" id="roadmap">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow" style="color:#7d684e">Career Roadmap</div><h2 class="serif">The full journey.</h2></div>
+    <div class="roadmap">
+      <div class="road"><div class="road-time">Jul 2026 – Oct 2026</div><div class="road-card"><h3>Senior Project Manager</h3><div class="company">STC Bank · Riyadh</div><p>Cross-functional cybersecurity and compliance delivery with executive governance, remediation tracking and escalation.</p><div class="projects"><b>Key Project:</b> SAMA Compliance Project.</div></div></div>
+      <div class="road"><div class="road-time">Nov 2025 – May 2026</div><div class="road-card"><h3>Senior Project Manager</h3><div class="company">Prosecure · Riyadh</div><p>Complex cybersecurity programs plus ERP transformation, Power BI executive dashboarding and vendor evaluation.</p><div class="projects"><b>Key Projects:</b> Saudi Energy Company · SPB · Maaden.</div></div></div>
+      <div class="road"><div class="road-time">Dec 2024 – Oct 2025</div><div class="road-card"><h3>Senior Projects Manager</h3><div class="company">Infratech · Al Khobar</div><p>ICT infrastructure, network modernization, cybersecurity, procurement coordination and senior-management reporting.</p><div class="projects"><b>Key Projects:</b> SABIC · SATORP · SANS.</div></div></div>
+      <div class="road"><div class="road-time">Sep 2023 – Dec 2024</div><div class="road-card"><h3>Projects Manager</h3><div class="company">SaharaNet · Riyadh</div><p>Integrated ICT delivery across MPLS, VPN, Azure, VPS, colocation, firewalls and security services with financial control and risk mitigation.</p><div class="projects"><b>Key Projects:</b> Boulevard HOH City · Social Development Bank · Fitness Time.</div></div></div>
+      <div class="road"><div class="road-time">Oct 2020 – Sep 2022</div><div class="road-card"><h3>Technical Project Manager</h3><div class="company">FiberHome · Amman</div><p>Schedules, subcontractors, O&amp;M, change control and delivery commitments across regional FTTH programs.</p><div class="projects"><b>Key Projects:</b> Fibertech FTTH · Paltel FTTH · Supercell FTTH.</div></div></div>
+      <div class="road"><div class="road-time">Sep 2016 – Feb 2020</div><div class="road-card"><h3>Implementation Manager</h3><div class="company">Nokia Solutions &amp; Networks · Amman</div><p>Network expansion delivery across resources, subcontractors, suppliers, KPIs, quality audits and acceptance.</p><div class="projects"><b>Key Projects:</b> Orange FTTH · Zain 4G Swap.</div></div></div>
+      <div class="road"><div class="road-time">Apr 2015 – Aug 2016</div><div class="road-card"><h3>Project Manager</h3><div class="company">FirstLink for Communications · Amman</div><p>Project plans, vendors, budget, scope and stakeholder management.</p><div class="projects"><b>Key Projects:</b> Orange Swap · UMNIAH Phase 11 &amp; 12.</div></div></div>
+      <div class="road"><div class="road-time">Apr 2014 – Mar 2015</div><div class="road-card"><h3>Transmission Team Leader</h3><div class="company">FirstLink for Communications · Tripoli</div><p>Transmission installation, commissioning, alignment, quality verification and troubleshooting.</p><div class="projects"><b>Key Projects:</b> Al-Madar Long Haul · Libyana GSM Swap · Libyana Wi-Max.</div></div></div>
+      <div class="road"><div class="road-time">Aug 2013 – Apr 2014</div><div class="road-card"><h3>BSS Engineer</h3><div class="company">ZTE Corporation · Amman</div><p>BTS/RRU installation, commissioning, troubleshooting and swap testing.</p><div class="projects"><b>Key Project:</b> UMNIAH RAN &amp; MW Swap.</div></div></div>
+      <div class="road"><div class="road-time">Aug 2011 – Jul 2013</div><div class="road-card"><h3>Telecom Implementation Engineer</h3><div class="company">UMNIAH · Amman</div><p>MW links, passive-DAS testing, site installation, supervision, configuration, maintenance and acceptance.</p><div class="projects"><b>Key Project:</b> UMNIAH 3G Project.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="certs">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Professional Certifications</div><h2>Multi-certified delivery leadership.</h2></div>
+    <div class="cert-grid">
+      <div class="cert">PMP®</div><div class="cert">PMI-ACP®</div>
+      <div class="cert">PMI-RMP®</div><div class="cert">P3O®</div>
+      <div class="cert">PSM-I™</div><div class="cert">PSPO-I™</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <h2 class="serif">Ready to lead what’s next.</h2>
+    <p class="brand-statement">I bring together technology, governance, people and execution to turn complex initiatives into measurable business outcomes — creating the clarity, control and momentum organizations need to deliver transformation with confidence.</p>
+    <div class="contact-grid">
+      <div class="contact-copy"><strong>Open to high-impact leadership opportunities</strong><br>across Project &amp; Program Management, Digital Transformation, Cybersecurity and PMO / Governance.</div>
+      <div class="contact-cards">
+        <a class="contact-card" href="mailto:eng.otoom@gmail.com"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></span><span><small>Email</small><b>eng.otoom@gmail.com</b></span></a>
+        <a class="contact-card" href="tel:+966541142023"><span class="icon"><svg viewBox="0 0 24 24"><path d="M6.6 2.8 9.4 7l-2 2c1.3 2.7 3.6 5 6.3 6.3l2-2 4.2 2.8-1 4c-.2.8-.9 1.3-1.7 1.3C9.3 21.4 2.6 14.7 2.6 6.8c0-.8.5-1.5 1.3-1.7l2.7-.7z"/></svg></span><span><small>Mobile</small><b>+966541142023</b></span></a>
+        <div class="contact-card"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.8 7-12A7 7 0 0 0 5 9c0 6.2 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span><span><small>Location</small><b>Riyadh, Saudi Arabia</b></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<audio id="bgMusic" src="portfolio-bg.mp3" autoplay loop preload="auto" playsinline></audio>
+<button class="sound-btn" id="soundBtn" aria-label="Toggle background music" title="Sound">
+  <svg id="soundIcon" viewBox="0 0 24 24"><path d="M5 10v4h4l5 4V6l-5 4H5z"/><path d="M17 9c1.2 1.6 1.2 4.4 0 6"/></svg>
+</button>
+
+<script>
+const progress=document.getElementById('progress');
+const heroImg=document.querySelector('.hero-media img');
+addEventListener('scroll',()=>{
+  const h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  progress.style.width=((scrollY/(max||1))*100)+'%';
+  if(innerWidth>720 && heroImg) heroImg.style.transform=`scale(1.02) translateY(${scrollY*.035}px)`;
+},{passive:true});
+
+function count(el){
+  if(el.dataset.done)return; el.dataset.done='1';
+  const target=+el.dataset.target, suffix=el.dataset.suffix||'', start=performance.now(),dur=1450;
+  function tick(now){const p=Math.min(1,(now-start)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e)+suffix;if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick);
+}
+function ringAnimate(){
+  const ring=document.getElementById('ring'); if(!ring||ring.dataset.done)return; ring.dataset.done='1';
+  const start=performance.now(),dur=1450,end=108;
+  function step(now){const p=Math.min(1,(now-start)/dur),e=1-Math.pow(1-p,3);ring.style.setProperty('--deg',(end*e)+'deg');if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+}
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.count').forEach(count);
+    e.target.querySelectorAll('.fill').forEach((bar,i)=>setTimeout(()=>bar.style.width=(bar.dataset.width||0)+'%',150+i*120));
+    if(e.target.querySelector('#ring')) ringAnimate();
+    io.unobserve(e.target);
+  }
+}),{threshold:.17});
+document.querySelectorAll('.reveal,.panel,.kpi-grid').forEach(el=>io.observe(el));
+
+const roadIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');roadIO.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.road').forEach((r,i)=>{r.style.transitionDelay=(i*65)+'ms';roadIO.observe(r)});
+
+const certIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.cert').forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*90));certIO.disconnect()}}),{threshold:.2});
+const cg=document.querySelector('.cert-grid');if(cg)certIO.observe(cg);
+
+/* Premium audio engine: autoplay where permitted, instant playback on first gesture otherwise */
+const music=document.getElementById('bgMusic'),btn=document.getElementById('soundBtn');
+let userMuted=false,fadeTimer=null;
+music.volume=0;
+music.loop=true;
+music.preload='auto';
+
+function fadeTo(target,duration=900){
+  clearInterval(fadeTimer);
+  const start=music.volume,steps=24,delta=(target-start)/steps,stepTime=duration/steps;
+  let i=0;
+  fadeTimer=setInterval(()=>{
+    i++;
+    music.volume=Math.max(0,Math.min(1,start+delta*i));
+    if(i>=steps){music.volume=target;clearInterval(fadeTimer)}
+  },stepTime);
+}
+async function playAudio(){
+  if(userMuted)return false;
+  try{
+    await music.play();
+    btn.classList.add('playing');
+    btn.classList.remove('needs-gesture');
+    fadeTo(.26,1000);
+    return true;
+  }catch(err){
+    btn.classList.add('needs-gesture');
+    return false;
+  }
+}
+async function autoplayAttempt(){
+  music.muted=false;
+  await playAudio();
+}
+
+if(document.readyState==='complete')autoplayAttempt();
+else window.addEventListener('load',autoplayAttempt,{once:true});
+
+const gestureStart=()=>{if(!userMuted&&music.paused)playAudio()};
+['pointerdown','touchstart','keydown','wheel'].forEach(ev=>document.addEventListener(ev,gestureStart,{once:true,passive:true,capture:true}));
+document.addEventListener('scroll',gestureStart,{once:true,passive:true,capture:true});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!userMuted&&music.paused)playAudio()});
+
+btn.addEventListener('click',async(e)=>{
+  e.preventDefault();e.stopPropagation();
+  if(!music.paused){
+    userMuted=true;
+    fadeTo(0,300);
+    setTimeout(()=>music.pause(),320);
+    btn.classList.remove('playing','needs-gesture');
+  }else{
+    userMuted=false;
+    await playAudio();
+  }
+});
+</script>
+</body>
+</html>
