@@ -1784,3 +1784,34 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 
 </body></html>
+
+<style id="mobile-hero-buttons-fix">
+@media (max-width:800px){
+  [data-page="home"] .hero-buttons{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    z-index:12!important;
+    width:100%!important;
+    gap:10px!important;
+    margin:18px 0 4px!important;
+    transform:none!important;
+    animation:none!important;
+  }
+  [data-page="home"] .hero-buttons a,
+  [data-page="home"] .hero-buttons button{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    flex:1 1 0!important;
+    min-width:0!important;
+    height:46px!important;
+    padding:0 12px!important;
+    justify-content:center!important;
+    align-items:center!important;
+    font-size:12px!important;
+    white-space:nowrap!important;
+  }
+}
+</style>
