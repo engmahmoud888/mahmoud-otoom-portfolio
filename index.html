@@ -2873,6 +2873,35 @@
 }
 </style>
 
+
+<style id="v52-final-approved-fixes">
+/* Advisory hero: old audience buttons removed; only the tabs below the hero remain. */
+.ms-hit-org,.ms-hit-pro{display:none!important;pointer-events:none!important}
+
+/* Advisory section supporting copy: larger and more readable on both audiences. */
+.ms-section-head p{font-size:17px!important;line-height:1.58!important;font-weight:500!important;color:#36566f!important}
+.ms-section-head aside{font-size:16px!important;line-height:1.58!important;font-weight:500!important;color:#36566f!important}
+@media(max-width:800px){
+ .ms-section-head p{font-size:16px!important;line-height:1.58!important}
+ .ms-section-head aside{font-size:15px!important;line-height:1.58!important}
+}
+
+/* One approved footer artwork on desktop and mobile. */
+.global-footer{background:#fff!important}
+.gf-mockup-img{display:block!important;width:100%!important;height:auto!important}
+.gf-mobile-exact{display:none!important}
+.gf-hot-home,.gf-hot-services,.gf-hot-experience,.gf-hot-credentials,.gf-hot-bottom-connect{display:none!important}
+@media(max-width:800px){
+ .global-footer{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;padding:0!important;margin:22px 0 0!important;background:#fff!important;border:0!important;overflow:hidden!important}
+ .gf-mockup-wrap{position:relative!important;width:100%!important;background:#fff!important}
+ .gf-mockup-img{display:block!important;width:100%!important;height:auto!important}
+ .gf-hot{display:block!important}
+ .gf-hot-email{left:67.3%!important;top:31%!important;width:16%!important;height:10%!important}
+ .gf-hot-linkedin{left:67.3%!important;top:42%!important;width:17%!important;height:10%!important}
+ .gf-hot-connect{left:84.2%!important;top:29%!important;width:13.8%!important;height:13%!important}
+}
+</style>
+
 </head>
 <body>
 <div class="viewport"><div class="stage-wrap" id="stageWrap"><div class="stage" id="stage">
@@ -2923,7 +2952,7 @@
 <header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button class="active" data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header>
 <div class="mock-services">
 <section class="ms-hero ms-hero-exact" aria-label="Advisory and Services">
-  <img src="services-hero-fullhd.jpg" alt="Experience, Put to Work — Advisory & Services">
+  <img src="services-hero-no-buttons.jpg" alt="Experience, Put to Work — Advisory & Services">
 </section>
 
 <nav class="ms-subtabs" aria-label="Advisory services audience">
@@ -2970,7 +2999,8 @@ addEventListener('resize',fit);fit();
 function go(name){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===name));history.replaceState(null,'','#'+name);window.scrollTo({top:0,behavior:'smooth'});const pg=document.querySelector(`[data-page="${name}"]`);if(pg)animateCounters(pg);}
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
 const initial=location.hash.slice(1);if(initial&&document.querySelector(`[data-page="${initial}"]`))go(initial);
-document.querySelectorAll('.mobile-menu-btn').forEach(btn=>btn.addEventListener('click',()=>{const nav=btn.parentElement.querySelector('.nav');nav.classList.toggle('mobile-open')}));document.querySelectorAll('.nav [data-go]').forEach(btn=>btn.addEventListener('click',()=>document.querySelectorAll('.nav').forEach(n=>n.classList.remove('mobile-open'))));
+document.querySelectorAll('.mobile-menu-btn').forEach(btn=>btn.addEventListener('click',()=>{const nav=btn.parentElement.querySelector('.nav');nav.classList.toggle('mobile-open')}));
+window.addEventListener('scroll',()=>document.querySelectorAll('.nav.mobile-open').forEach(n=>n.classList.remove('mobile-open')),{passive:true});document.querySelectorAll('.nav [data-go]').forEach(btn=>btn.addEventListener('click',()=>document.querySelectorAll('.nav').forEach(n=>n.classList.remove('mobile-open'))));
 
 function animateCounters(page){page.querySelectorAll('[data-count]').forEach(el=>{const target=+el.dataset.count,prefix=el.dataset.prefix||'',suffix=el.dataset.suffix||'';let start=null;function tick(t){if(!start)start=t;const p=Math.min(1,(t-start)/1100);const eased=1-Math.pow(1-p,3);el.textContent=prefix+Math.round(target*eased)+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});page.querySelectorAll('.donut[data-value]').forEach(d=>{const target=+d.dataset.value,num=d.querySelector('.donut-number');d.style.setProperty('--donut','0deg');if(num)num.textContent='0';let start=null;function tick(t){if(!start)start=t;const p=Math.min(1,(t-start)/1200),e=1-Math.pow(1-p,3),v=target*e;d.style.setProperty('--donut',(v*3.6)+'deg');if(num)num.textContent=Math.round(v);if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)})}
 
@@ -3249,39 +3279,10 @@ document.addEventListener('click',function(e){
   const footer=`
   <footer class="global-footer">
     <div class="gf-mockup-wrap">
-      <img class="gf-mockup-img" src="footer-approved-mockup.png" alt="Mahmoud Otoom — Technology Transformation & Complex Delivery footer">
+      <img class="gf-mockup-img" src="footer-approved-final.png" alt="Mahmoud Otoom — Technology Transformation & Complex Delivery footer">
       <a class="gf-hot gf-hot-email" href="mailto:eng.otoom@gmail.com" aria-label="Email Mahmoud Otoom"></a>
       <a class="gf-hot gf-hot-linkedin" href="https://www.linkedin.com/in/mahmoud-otoom/" target="_blank" rel="noopener" aria-label="Connect on LinkedIn"></a>
       <button class="gf-hot gf-hot-connect" data-go="contact" aria-label="Let's Connect"></button>
-      <button class="gf-hot gf-hot-home" data-go="home" aria-label="Home"></button>
-      <button class="gf-hot gf-hot-services" data-go="services" aria-label="Advisory and Services"></button>
-      <button class="gf-hot gf-hot-experience" data-go="journey" aria-label="Experience"></button>
-      <button class="gf-hot gf-hot-credentials" data-go="credentials" aria-label="Credentials"></button>
-      <button class="gf-hot gf-hot-bottom-connect" data-go="contact" aria-label="Let's Connect"></button>
-      <div class="gf-mobile-exact">
-        <div class="m-sign">Mahmoud Otoom</div>
-        <h4>TECHNOLOGY TRANSFORMATION &amp; COMPLEX DELIVERY</h4>
-        <div class="keys">STRATEGY &nbsp; | &nbsp; GOVERNANCE &nbsp; | &nbsp; DELIVERY &nbsp; | &nbsp; PEOPLE</div>
-        <div class="sep"></div>
-        <h3>PEOPLE. PROCESS. TECHNOLOGY.</h3>
-        <em>Turning strategy into real progress.</em>
-        <div class="progress">CLEARER DECISIONS &nbsp; → &nbsp; STRONGER DELIVERY &nbsp; → &nbsp; REAL PROGRESS</div>
-        <div class="contact">
-          <span>Riyadh, Saudi Arabia</span>
-          <a href="mailto:eng.otoom@gmail.com">eng.otoom@gmail.com</a>
-          <a href="https://www.linkedin.com/in/mahmoud-otoom/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
-        <button class="m-connect" data-go="contact">Let's Connect &nbsp; →</button>
-        <div class="new">NEW PERSPECTIVES.<br>REAL PROGRESS.</div>
-        <div class="nav">
-          <button data-go="home">Home</button>
-          <button data-go="services">Advisory &amp; Services</button>
-          <button data-go="journey">Experience</button>
-          <button data-go="credentials">Credentials</button>
-          <button data-go="contact">Let's Connect</button>
-        </div>
-        <div class="copy">© 2026 Mahmoud Otoom. All rights reserved.<br><b>Built for a Better Tomorrow.</b></div>
-      </div>
     </div>
   </footer>`;
   document.querySelectorAll('.page').forEach(p=>{
