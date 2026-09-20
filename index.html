@@ -2514,24 +2514,7 @@
 }
 @media(prefers-reduced-motion:reduce){.mock-services *{animation:none!important;transition:none!important}}
 </style>
-<script id="v46-service-tabs">
-(()=>{
- const tabs=[...document.querySelectorAll('[data-service-tab]')];
- const panels=[...document.querySelectorAll('[data-service-panel]')];
- const nav=document.querySelector('.ms-subtabs');
- function activate(key, scroll=true){
-   tabs.forEach(t=>{const on=t.dataset.serviceTab===key;t.classList.toggle('active',on);t.setAttribute('aria-selected',String(on));});
-   panels.forEach(p=>p.classList.toggle('active',p.dataset.servicePanel===key));
-   if(scroll && nav) nav.scrollIntoView({behavior:'smooth',block:'start'});
- }
- tabs.forEach(t=>t.addEventListener('click',()=>activate(t.dataset.serviceTab,false)));
- document.addEventListener('click',e=>{
-   const b=e.target.closest('[data-ms-jump]'); if(!b)return;
-   e.preventDefault(); activate(b.dataset.msJump,true);
- });
- activate('org',false);
-})();
-</script>
+
 
 
 <style id="v44-literal-mockup">
@@ -2640,110 +2623,253 @@
 </style>
 
 
-<style id="v46-polish">
-/* Desktop navigation */
-.connect{cursor:pointer;color:#071f42;font-weight:700}
-
-/* HOME — more refined handwritten signature, without moving the approved composition */
+<style id="v47-final-corrections">
+/* ===== Desktop canvas: reserve a real footer lane below the existing 1024px composition ===== */
 @media(min-width:801px){
- [data-page="home"] .sig{
-   font-family:"Snell Roundhand","Segoe Script","Brush Script MT","Apple Chancery",cursive!important;
-   font-size:34px!important;font-weight:500!important;letter-spacing:-.055em!important;
-   transform:rotate(-3deg) skewX(-5deg)!important;
-   text-shadow:0 .35px 0 rgba(7,31,66,.18);
- }
- [data-page="home"] .sig:after{height:2px!important;right:-20%!important;background:linear-gradient(90deg,#087af0 0 72%,transparent)!important}
- /* Keep the Asia row fully inside the fixed desktop stage. */
- [data-page="home"] .regions{padding-top:2px!important;padding-bottom:14px!important;align-self:start!important}
- [data-page="home"] .region{margin-bottom:6px!important;line-height:1.12!important}
- [data-page="home"] .region small{line-height:1.15!important}
+  .stage{height:1260px!important}
+  .page{height:1260px!important;bottom:auto!important}
+  .global-footer{position:absolute;left:0;right:0;top:1024px;height:236px}
+  [data-page="home"] .foot{overflow:visible!important}
+  [data-page="home"] .regions{padding-bottom:0!important;align-content:start!important}
+  [data-page="home"] .region{margin-bottom:6px!important}
+  [data-page="home"] .region small{line-height:1.12!important}
 }
 
-/* HOME capability icons — vector SVG stays razor sharp on Retina/4K. */
-.pillar-icon svg{shape-rendering:geometricPrecision!important;vector-effect:non-scaling-stroke}
-.pillar-icon{filter:none!important}
-.pillar-icon svg *{vector-effect:non-scaling-stroke}
+/* ===== Let's Connect: every desktop page ===== */
+.top-actions{margin-left:auto!important}
+.connect{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  min-width:126px;height:42px;padding:0 17px!important;
+  border:1px solid #9bb2c7!important;border-radius:5px!important;
+  background:#fff!important;color:#071f42!important;font-weight:800!important;
+  cursor:pointer;white-space:nowrap;transition:.25s ease;
+}
+.connect:hover{border-color:#087af0!important;color:#087af0!important;box-shadow:0 8px 20px rgba(8,122,240,.10)}
+@media(max-width:800px){.top-actions .connect{display:none!important}}
 
-/* CREDENTIALS — readable hierarchy on desktop and mobile. */
+/* ===== Home signature: visibly more refined and legible ===== */
+.signature-name{
+  display:inline-block;
+  font-family:"Snell Roundhand","Apple Chancery","Segoe Script","Brush Script MT",cursive!important;
+  font-size:38px!important;line-height:1!important;font-weight:500!important;
+  letter-spacing:-.075em!important;color:#082f59!important;
+  transform:rotate(-3deg) skewX(-6deg);
+  text-shadow:0 .3px 0 rgba(7,31,66,.18);
+  position:relative;padding:0 9px 7px 0;
+}
+.signature-name:after{
+  content:"";position:absolute;left:11%;right:-13%;bottom:0;height:1.8px;
+  background:linear-gradient(90deg,#0b6fae 0 76%,transparent);
+  transform:rotate(-2deg);transform-origin:left center;
+}
+@media(max-width:800px){.signature-name{font-size:31px!important}}
+
+/* ===== Credentials readability ===== */
 .credential-pillars b{
- font-size:20px!important;line-height:1.05!important;font-weight:800!important;
- color:#087af0!important;letter-spacing:.01em!important;
+  font-size:20px!important;line-height:1.08!important;font-weight:800!important;
+  color:#087af0!important;margin-top:7px!important;
 }
 .credential-pillars small{
- font-size:16px!important;line-height:1.25!important;font-weight:600!important;
- color:#284c6a!important;margin-top:3px!important;
+  display:block!important;font-size:16px!important;line-height:1.25!important;
+  font-weight:600!important;color:#365a77!important;margin-top:2px!important;
 }
-.credential-pillars .line-icon svg{shape-rendering:geometricPrecision}
 @media(max-width:800px){
  .credential-pillars b{font-size:13px!important}
- .credential-pillars small{font-size:11px!important;line-height:1.2!important}
+ .credential-pillars small{font-size:10px!important;line-height:1.18!important}
 }
 
-/* ADVISORY — audience tabs; original hero remains untouched. */
+/* ===== Advisory: same interaction model on desktop + mobile ===== */
+.mock-services{padding-bottom:28px!important}
 .ms-subtabs{
- position:sticky;top:0;z-index:18;display:grid;grid-template-columns:1fr 1fr;
- width:min(820px,calc(100% - 96px));margin:18px auto 4px;
- border:1px solid #d7e6f2;border-radius:10px;background:rgba(255,255,255,.96);
- box-shadow:0 10px 30px rgba(7,31,66,.06);overflow:hidden;backdrop-filter:blur(12px);
+  display:grid;grid-template-columns:1fr 1fr;
+  width:min(840px,calc(100% - 96px));margin:18px auto 7px;
+  border:1px solid #d7e6f2;border-radius:11px;overflow:hidden;
+  background:rgba(255,255,255,.98);box-shadow:0 10px 30px rgba(7,31,66,.07);
 }
 .ms-subtabs button{
- position:relative;border:0;background:transparent;padding:15px 20px;
- color:#5a7188;font-size:12px;font-weight:800;letter-spacing:.12em;cursor:pointer;
- transition:color .35s ease,background .35s ease;
+  position:relative;border:0;background:transparent;padding:15px 20px;
+  font-size:13px;font-weight:800;letter-spacing:.11em;color:#60798e;cursor:pointer;
+  transition:background .3s ease,color .3s ease;
 }
-.ms-subtabs button+button{border-left:1px solid #e2edf5}
-.ms-subtabs button.active{color:#087af0;background:linear-gradient(180deg,#fff,#f2f9ff)}
+.ms-subtabs button+button{border-left:1px solid #e0ebf3}
+.ms-subtabs button.active{color:#087af0;background:linear-gradient(180deg,#fff,#f1f9ff)}
 .ms-subtabs button.active:after{
- content:"";position:absolute;left:14%;right:14%;bottom:0;height:3px;border-radius:3px;
- background:#087af0;box-shadow:0 0 14px rgba(8,122,240,.42);
- animation:v46TabLine .45s cubic-bezier(.2,.8,.2,1) both;
+  content:"";position:absolute;left:13%;right:13%;bottom:0;height:3px;border-radius:4px;
+  background:#087af0;box-shadow:0 0 13px rgba(8,122,240,.38);
 }
 .ms-tab-stage{position:relative;overflow:hidden}
 .ms-service-panel{display:none!important}
-.ms-service-panel.active{display:block!important;animation:v46PanelIn .58s cubic-bezier(.2,.8,.2,1) both}
-.ms-service-panel.active .ms-grid article{animation:v46CardIn .58s both}
-.ms-service-panel.active .ms-grid article:nth-child(2){animation-delay:.07s}
-.ms-service-panel.active .ms-grid article:nth-child(3){animation-delay:.14s}
-.ms-service-panel.active .ms-grid article:nth-child(4){animation-delay:.21s}
-.ms-service-panel.active .ms-grid article:nth-child(5){animation-delay:.28s}
-@keyframes v46PanelIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
-@keyframes v46CardIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
-@keyframes v46TabLine{from{transform:scaleX(.2);opacity:0}to{transform:scaleX(1);opacity:1}}
+.ms-service-panel.active{display:block!important;animation:v47Panel .48s cubic-bezier(.2,.8,.2,1) both}
+.ms-service-panel.active .ms-grid article{animation:v47Card .52s both}
+.ms-service-panel.active .ms-grid article:nth-child(2){animation-delay:.06s}
+.ms-service-panel.active .ms-grid article:nth-child(3){animation-delay:.12s}
+.ms-service-panel.active .ms-grid article:nth-child(4){animation-delay:.18s}
+.ms-service-panel.active .ms-grid article:nth-child(5){animation-delay:.24s}
+@keyframes v47Panel{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes v47Card{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 
-/* One icon only per service card; icon + service name form one clear header. */
-.ms-service-icon{height:72px!important;padding:17px 18px 4px!important;border-bottom:0!important;background:#fff!important}
-.ms-service-icon svg{width:42px!important;height:42px!important;stroke-width:2!important;shape-rendering:geometricPrecision!important}
-.ms-card{padding-top:7px!important}
+.ms-section-head h2{font-size:31px!important}
+.ms-section-head p{font-size:16px!important;line-height:1.5!important;color:#254965!important;font-weight:500!important}
+.ms-section-head aside{font-size:14px!important;line-height:1.5!important;color:#365a77!important}
+.ms-kicker{font-size:12px!important;font-weight:800!important;letter-spacing:.13em!important}
+.ms-service-icon{height:76px!important;padding:18px 18px 5px!important;border-bottom:0!important;background:#fff!important}
+.ms-service-icon svg{width:44px!important;height:44px!important;stroke-width:2.15!important;shape-rendering:geometricPrecision!important}
+.ms-card{padding-top:8px!important}
 .ms-card h3{margin-top:0!important}
 
-/* Footer: HD background plus crisp vector flow replacing the baked blurry icons/text. */
-.ms-bottom-exact{isolation:isolate}
-.ms-bottom-exact>img{image-rendering:auto}
-.ms-flow-crisp{
- position:absolute;z-index:8;left:52.5%;top:9%;width:34%;height:50%;
- display:flex;align-items:center;justify-content:center;gap:20px;
- background:linear-gradient(90deg,rgba(249,253,255,.98),rgba(249,253,255,.96) 86%,rgba(249,253,255,0));
-}
-.ms-flow-crisp .flow-step{text-align:center;color:#071f42;font:800 12px/1.05 Arial,sans-serif;min-width:76px}
-.ms-flow-crisp svg{display:block;width:39px;height:39px;margin:0 auto 5px;fill:none;stroke:#087af0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
-.ms-flow-crisp i{font-style:normal;color:#087af0;font-size:27px;animation:v46Arrow 2.4s ease-in-out infinite}
-.ms-flow-crisp .flow-step{animation:v46Flow 4.8s ease-in-out infinite}
-.ms-flow-crisp .flow-step:nth-of-type(2){animation-delay:.35s}.ms-flow-crisp .flow-step:nth-of-type(3){animation-delay:.7s}
-@keyframes v46Arrow{50%{transform:translateX(4px);opacity:.65}}
-@keyframes v46Flow{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+/* Hide the obsolete clickable zones that belonged to the old hero audience buttons. */
+.ms-hit{display:none!important}
 
 @media(max-width:800px){
- .ms-subtabs{width:calc(100% - 24px);margin:12px auto 2px;border-radius:8px}
- .ms-subtabs button{font-size:11px;letter-spacing:.045em;padding:13px 7px;white-space:nowrap}
- .ms-service-icon{height:76px!important;padding:18px 17px 4px!important}
- .ms-service-icon svg{width:44px!important;height:44px!important}
- .ms-flow-crisp{left:51%;top:6%;width:39%;height:54%;gap:5px}
- .ms-flow-crisp .flow-step{font-size:7px;min-width:38px}
- .ms-flow-crisp svg{width:25px;height:25px;margin-bottom:3px}
- .ms-flow-crisp i{font-size:15px}
+ .mock-services{padding-bottom:0!important}
+ .ms-subtabs{
+   width:calc(100% - 24px);margin:12px auto 4px;border-radius:9px;
+   position:sticky;top:0;z-index:20;
+ }
+ .ms-subtabs button{font-size:11px;letter-spacing:.035em;padding:14px 5px;white-space:nowrap}
+ .ms-section{padding:28px 16px 30px!important}
+ .ms-section-head h2{font-size:28px!important}
+ .ms-section-head p{font-size:15px!important;line-height:1.5!important}
+ .ms-section-head aside{font-size:14px!important;line-height:1.48!important;margin-top:14px!important}
+ .ms-kicker{font-size:11px!important}
+ .ms-service-icon{height:78px!important;padding:18px 17px 5px!important}
+ .ms-service-icon svg{width:46px!important;height:46px!important}
+ .ms-card h3{font-size:18px!important}
+ .ms-card p{font-size:14px!important;line-height:1.48!important}
+}
+
+/* ===== Approved global Signature Footer ===== */
+.global-footer{
+  z-index:12;background:linear-gradient(180deg,#fff 0%,#f8fbfe 100%);
+  border-top:1px solid #d9e7f1;color:#071f42;padding:31px 64px 18px;
+}
+.gf-main{display:grid;grid-template-columns:1.12fr 1.35fr .86fr .62fr;gap:30px;align-items:center}
+.gf-signature{padding-right:26px;border-right:1px solid #bdd0df}
+.gf-signature .gf-name{
+  font-family:"Snell Roundhand","Apple Chancery","Segoe Script","Brush Script MT",cursive;
+  font-size:34px;line-height:1;color:#082f59;letter-spacing:-.055em;transform:rotate(-2deg);
+  display:inline-block;margin-bottom:9px;
+}
+.gf-signature strong{display:block;font-size:10px;letter-spacing:.17em}
+.gf-signature small{display:block;margin-top:11px;font-size:9px;letter-spacing:.18em;color:#456883}
+.gf-message{text-align:center;padding-right:26px;border-right:1px solid #bdd0df}
+.gf-message b{display:block;font-size:15px;letter-spacing:.25em}
+.gf-message em{display:block;font:italic 16px Georgia,serif;color:#365a77;margin:12px 0}
+.gf-message span{font-size:9px;letter-spacing:.12em;color:#456883}
+.gf-contact{display:grid;gap:9px;font-size:11px}
+.gf-contact a{color:#0a5e9f;font-weight:700}
+.gf-cta{padding-left:22px;border-left:1px solid #bdd0df;text-align:center}
+.gf-cta button{width:100%;height:47px;border:0;border-radius:24px;background:linear-gradient(105deg,#061f42,#07558f);color:#fff;font-weight:800;cursor:pointer}
+.gf-cta small{display:block;margin-top:12px;font-size:9px;line-height:1.55;letter-spacing:.19em;color:#456883}
+.gf-bottom{margin-top:23px;padding-top:14px;border-top:1px solid #cddce7;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:#4c6a82}
+.gf-links{display:flex;gap:22px}.gf-links button{border:0;background:none;padding:0;cursor:pointer;color:#0a315c;font-size:9px}
+.gf-copy{display:flex;gap:18px;align-items:center}.gf-copy b{font-weight:500;color:#315875}
+
+@media(max-width:800px){
+ .global-footer{
+   position:relative!important;left:auto!important;right:auto!important;top:auto!important;height:auto!important;
+   padding:30px 18px 22px!important;margin-top:18px!important;
+ }
+ .gf-main{grid-template-columns:1fr;gap:22px;text-align:center}
+ .gf-signature,.gf-message,.gf-cta{padding:0 0 20px!important;border-right:0!important;border-left:0!important;border-bottom:1px solid #d5e3ed!important}
+ .gf-signature .gf-name{font-size:35px}
+ .gf-signature strong{font-size:10px;line-height:1.45}
+ .gf-signature small{font-size:9px;line-height:1.6}
+ .gf-message b{font-size:13px;letter-spacing:.17em}
+ .gf-message em{font-size:16px}
+ .gf-message span{font-size:9px;line-height:1.6;display:block}
+ .gf-contact{font-size:12px;gap:10px}
+ .gf-cta button{max-width:260px}
+ .gf-bottom{display:grid;gap:15px;justify-items:center}
+ .gf-links{flex-wrap:wrap;justify-content:center;gap:10px 17px}
+ .gf-links button{font-size:10px}
+ .gf-copy{display:block;text-align:center;line-height:1.7}
 }
 @media(prefers-reduced-motion:reduce){
- .ms-service-panel.active,.ms-service-panel.active .ms-grid article,.ms-flow-crisp *{animation:none!important}
+ .ms-service-panel.active,.ms-service-panel.active .ms-grid article{animation:none!important}
+}
+</style>
+
+
+<style id="v50-exact-mockup-footer">
+/* HOME: no signature below the "I turn complexity..." quote. */
+[data-page="home"] .quote>.sig{display:none!important}
+
+/* HOME: restore the original, proven V45 pillar/icon geometry. */
+[data-page="home"] .pillar-icon{
+ width:40px!important;height:40px!important;flex:0 0 40px!important;border-radius:50%!important;
+ background:#eef8fe!important;color:#078ad1!important;display:grid!important;place-items:center!important;
+ border:0!important;box-shadow:none!important;
+}
+[data-page="home"] .pillar-icon svg{
+ width:31px!important;height:31px!important;fill:none!important;stroke:currentColor!important;
+ stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+[data-page="home"] .quote .pillar-box{padding-top:5px!important;overflow:hidden!important}
+@media(max-width:800px){
+ [data-page="home"] .pillar-icon{width:34px!important;height:34px!important;flex-basis:34px!important}
+ [data-page="home"] .pillar-icon svg{width:22px!important;height:22px!important}
+}
+
+/* EXACT DESKTOP MOCKUP: the supplied approved image is the rendered footer. */
+@media(min-width:801px){
+ .stage,.page{height:1537px!important}
+ .global-footer{
+   position:absolute!important;left:0!important;right:0!important;top:1024px!important;
+   width:100%!important;height:auto!important;padding:0!important;margin:0!important;border:0!important;
+   background:#fff!important;overflow:hidden!important;
+ }
+ .gf-mockup-wrap{position:relative!important;width:100%!important}
+ .gf-mockup-img{display:block!important;width:100%!important;height:auto!important}
+ .gf-hot{position:absolute!important;display:block!important;background:transparent!important;border:0!important;cursor:pointer!important;z-index:3!important}
+ .gf-hot-email{left:69.3%!important;top:39.5%!important;width:14.5%!important;height:7%!important}
+ .gf-hot-linkedin{left:69.2%!important;top:46.8%!important;width:13.5%!important;height:7%!important}
+ .gf-hot-connect{left:84.5%!important;top:32.5%!important;width:13.2%!important;height:11.5%!important}
+ .gf-hot-home{left:2.7%!important;top:74.2%!important;width:4%!important;height:7%!important}
+ .gf-hot-services{left:11.2%!important;top:74.2%!important;width:9.5%!important;height:7%!important}
+ .gf-hot-experience{left:21.0%!important;top:74.2%!important;width:6.3%!important;height:7%!important}
+ .gf-hot-credentials{left:27.4%!important;top:74.2%!important;width:6.7%!important;height:7%!important}
+ .gf-hot-bottom-connect{left:33.8%!important;top:74.2%!important;width:7.2%!important;height:7%!important}
+}
+
+/* MOBILE: same approved footer artwork, presented as a readable vertical composition. */
+@media(max-width:800px){
+ .global-footer{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;padding:0!important;margin:22px 0 0!important;background:#fff!important;border:0!important;overflow:hidden!important}
+ .gf-mockup-wrap{position:relative!important;width:100%!important;background:#fff!important}
+ .gf-mockup-img{display:none!important}
+ .gf-mobile-exact{display:block!important;padding:34px 20px 24px!important;background:linear-gradient(180deg,#fff,#f8fbfe)!important;color:#0c315e!important;text-align:center!important}
+ .gf-mobile-exact .m-sign{font-family:"Snell Roundhand","Apple Chancery","Segoe Script","Brush Script MT",cursive!important;font-size:43px!important;font-style:italic!important;line-height:1!important;margin-bottom:15px!important}
+ .gf-mobile-exact h4{font-size:10px!important;letter-spacing:.15em!important;margin:0!important}
+ .gf-mobile-exact .keys{font-size:8px!important;letter-spacing:.18em!important;color:#587591!important;margin:13px 0 26px!important}
+ .gf-mobile-exact .sep{height:1px!important;background:#c8d9e6!important;margin:0 0 25px!important}
+ .gf-mobile-exact h3{font-size:14px!important;letter-spacing:.22em!important;margin:0!important}
+ .gf-mobile-exact em{display:block!important;font:italic 17px Georgia,serif!important;margin:14px 0!important;color:#365d7b!important}
+ .gf-mobile-exact .progress{font-size:8px!important;letter-spacing:.09em!important;color:#56738d!important;margin-bottom:25px!important}
+ .gf-mobile-exact .contact{display:grid!important;gap:11px!important;font-size:12px!important;margin:0 auto 22px!important}
+ .gf-mobile-exact a{color:#0c4f91!important;font-weight:700!important}
+ .gf-mobile-exact .m-connect{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:min(280px,90%)!important;height:49px!important;border:0!important;border-radius:26px!important;background:#073968!important;color:#fff!important;font-weight:800!important;margin-bottom:12px!important}
+ .gf-mobile-exact .new{font-size:9px!important;line-height:1.55!important;letter-spacing:.18em!important;color:#587591!important}
+ .gf-mobile-exact .nav{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:11px 17px!important;margin:24px 0 18px!important;padding-top:20px!important;border-top:1px solid #c8d9e6!important}
+ .gf-mobile-exact .nav button{border:0!important;background:none!important;color:#0c315e!important;font-size:10px!important}
+ .gf-mobile-exact .copy{font-size:9px!important;line-height:1.65!important;color:#587591!important}
+ .gf-hot{display:none!important}
+}
+@media(min-width:801px){.gf-mobile-exact{display:none!important}}
+</style>
+
+
+<style id="v51-home-right-shift">
+/* Approved Home refinement: move quote + Strategy/Execution/People/Impact down together. */
+@media(min-width:801px){
+  [data-page="home"] .home-main .right{
+    transform:translateY(18px)!important;
+  }
+}
+@media(max-width:800px){
+  /* Keep mobile composition unchanged. */
+  [data-page="home"] .home-main .right{
+    transform:none!important;
+  }
 }
 </style>
 
@@ -2764,7 +2890,7 @@
  <div class="story-progress" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
  <div class="story-tabs"><button class="story-tab active" data-story-index="0"><b>01</b><span>IMPACT</span></button><button class="story-tab" data-story-index="1"><b>02</b><span>TRANSFORM</span></button><button class="story-tab" data-story-index="2"><b>03</b><span>WORK</span></button><button class="story-tab" data-story-index="3"><b>04</b><span>HOW I LEAD</span></button><button class="story-tab" data-story-index="4"><b>05</b><span>JOURNEY</span></button><button class="story-tab" data-story-index="5"><b>06</b><span>CREDENTIALS</span></button><button class="story-tab" data-story-index="6"><b>07</b><span>ADVISORY</span></button><button class="story-tab" data-story-index="7"><b>08</b><span>CONTACT</span></button></div>
  <div class="story-hint">SWIPE / TAP TO EXPLORE &nbsp;→</div>
-</div><aside class="quote"><div class="mark">“</div><blockquote><span>I turn complexity into clarity,</span><span>align <em>people</em> around <em>purpose</em>,</span><span>and move technology transformation</span><span>from ambition to measurable <em>impact.</em><span class="quote-inline main-inline">”</span></span></blockquote><div class="close-mark" aria-hidden="true">”</div><div class="sig">Mahmoud Otoom</div><div class="hero-mantra"><span>PEOPLE</span><i>|</i><span>PROCESS</span><i>|</i><span>TECHNOLOGY</span><small>FOR A BRIGHTER TOMORROW</small></div><div class="desktop-mantra"><strong>People. Process. Technology.</strong><span>Bringing the three together for a brighter tomorrow.</span></div><div class="pillars">
+</div><aside class="quote"><div class="mark">“</div><blockquote><span>I turn complexity into clarity,</span><span>align <em>people</em> around <em>purpose</em>,</span><span>and move technology transformation</span><span>from ambition to measurable <em>impact.</em><span class="quote-inline main-inline">”</span></span></blockquote><div class="close-mark" aria-hidden="true">”</div><div class="hero-mantra"><span>PEOPLE</span><i>|</i><span>PROCESS</span><i>|</i><span>TECHNOLOGY</span><small>FOR A BRIGHTER TOMORROW</small></div><div class="desktop-mantra"><strong>People. Process. Technology.</strong><span>Bringing the three together for a brighter tomorrow.</span></div><div class="pillars">
 <span class="pillar-box"><b class="pillar-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M13 13l4 4M31 31l4 4M35 13l-4 4M17 31l-4 4"/></svg></b><em><i>01</i>STRATEGY</em></span>
 <span class="pillar-box"><b class="pillar-icon"><svg viewBox="0 0 48 48"><path d="M28 4 12 27h11l-2 17 16-25H26z"/></svg></b><em><i>02</i>EXECUTION</em></span>
 <span class="pillar-box"><b class="pillar-icon"><svg viewBox="0 0 48 48"><circle cx="19" cy="17" r="7"/><circle cx="33" cy="19" r="5"/><path d="M6 40c0-10 5-15 13-15s13 5 13 15M29 28c8 0 13 4 13 12"/></svg></b><em><i>03</i>PEOPLE</em></span>
@@ -2774,13 +2900,13 @@
 <div class="foot"><div class="foot-copy"><h2>GLOBAL<br>DELIVERY FOOTPRINT</h2><button data-go="journey">Explore the Journey &nbsp; →</button></div><div class="map"><svg viewBox="0 0 760 260" aria-label="Global delivery footprint"><path class="route" d="M405 145 Q255 35 92 86"/><path class="route" d="M405 145 Q270 105 145 148"/><path class="route" d="M405 145 Q285 165 205 198"/><path class="route" d="M405 145 Q405 70 390 82"/><path class="route" d="M405 145 Q535 78 670 112"/><circle class="dot" cx="92" cy="86" r="7"/><text class="label" x="106" y="91">USA</text><circle class="dot" cx="145" cy="148" r="6"/><text class="label" x="158" y="153">Mexico</text><circle class="dot" cx="205" cy="198" r="7"/><text class="label" x="219" y="203">Brazil</text><circle class="dot" cx="390" cy="82" r="6"/><text class="label" x="404" y="78">Europe</text><circle class="dot" cx="405" cy="145" r="8"/><text class="label" x="420" y="165">Saudi Arabia</text><circle class="dot" cx="398" cy="126" r="5"/><text class="label" x="410" y="124">Jordan</text><circle class="dot" cx="435" cy="146" r="5"/><text class="label" x="447" y="143">Palestine</text><circle class="dot" cx="430" cy="132" r="5"/><text class="label" x="442" y="130">Iraq</text><circle class="dot" cx="350" cy="158" r="5"/><text class="label" x="319" y="176">Libya</text><circle class="dot" cx="670" cy="112" r="7"/><text class="label" x="684" y="117">East Asia</text></svg></div><div class="regions"><div class="region"><i></i><div><b>North America</b><small>(USA)</small></div></div><div class="region"><i></i><div><b>Latin America</b><small>(Mexico, Brazil)</small></div></div><div class="region"><i></i><div><b>Europe</b><small>(Multiple countries)</small></div></div><div class="region"><i></i><div><b>Middle East</b><small>(Saudi Arabia, Jordan, Palestine, Iraq)</small></div></div><div class="region"><i></i><div><b>North Africa</b><small>(Libya)</small></div></div><div class="region"><i></i><div><b>Asia</b><small>(East Asia - Multiple countries)</small></div></div></div></div><div class="scroll-note"><i>↓</i> SCROLL TO EXPLORE</div><div class="footer-word">TECHNOLOGY&nbsp;&nbsp; × &nbsp;&nbsp;PEOPLE&nbsp;&nbsp; × &nbsp;&nbsp;TRANSFORMATION</div>
 </section>
 
-<section class="page" data-page="impact"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button class="active" data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button><div class="top-actions"><button class="music" data-music><span class="disc">♫</span><span>Play Music</span></button></div></header><div class="chapter-inner"><div class="chapter-kicker">IMPACT</div><h1 class="chapter-title">Scale, complexity<br>and measurable delivery.</h1><p class="chapter-lead">Technology transformation leadership across cybersecurity, IT/ICT infrastructure, digital transformation and telecom environments.</p><div class="impact-feature"><div class="donut" data-value="30"><strong><span class="donut-number">0</span>%</strong></div><div><b>Reduction in Security Incidents</b><span>Measured operational impact</span></div></div><div class="impact-lenses"><div><i class="line-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="8"/><path d="M24 5v5M24 38v5M5 24h5M38 24h5"/></svg></i><b>GLOBAL DELIVERY</b><span>Cross-region coordination across time zones and cultures</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M24 5 43 24 24 43 5 24Z"/><path d="M16 24h16M24 16v16"/></svg></i><b>GOVERNANCE CONTROL</b><span>RAID, critical path, escalation and decision support</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M9 34V20M20 34V13M31 34V8M7 38h34"/><path d="m10 17 10-7 10 3 10-8"/></svg></i><b>TRANSFORMATION</b><span>Workflow redesign, Power BI visibility and ERP evaluation</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="7"/><path d="M24 5v7M24 36v7M5 24h7M36 24h7M10.6 10.6l5 5M32.4 32.4l5 5M37.4 10.6l-5 5M15.6 32.4l-5 5"/></svg></i><b>COMPLEX DELIVERY</b><span>Cybersecurity, IT/ICT infrastructure and telecom environments</span></div></div><div class="cards"><article class="card"><small>GLOBAL DELIVERY</small><h3>Multi-Region Leadership</h3><p>Delivery exposure across the Middle East, Europe, East Asia and the Americas, coordinating teams, vendors and stakeholders across time zones and cultures.</p></article><article class="card"><small>GOVERNANCE</small><h3>Executive Control</h3><p>RAID, dependency management, critical-path impact assessment, escalation, executive reporting and decision support.</p></article><article class="card"><small>TRANSFORMATION</small><h3>From Operations to Insight</h3><p>Workflow redesign, Power BI management visibility and ERP evaluation as part of an internal digitalization journey.</p></article></div></div></section>
+<section class="page" data-page="impact"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button class="active" data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button><button class="music" data-music><span class="disc">♫</span><span>Play Music</span></button></div></header><div class="chapter-inner"><div class="chapter-kicker">IMPACT</div><h1 class="chapter-title">Scale, complexity<br>and measurable delivery.</h1><p class="chapter-lead">Technology transformation leadership across cybersecurity, IT/ICT infrastructure, digital transformation and telecom environments.</p><div class="impact-feature"><div class="donut" data-value="30"><strong><span class="donut-number">0</span>%</strong></div><div><b>Reduction in Security Incidents</b><span>Measured operational impact</span></div></div><div class="impact-lenses"><div><i class="line-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="8"/><path d="M24 5v5M24 38v5M5 24h5M38 24h5"/></svg></i><b>GLOBAL DELIVERY</b><span>Cross-region coordination across time zones and cultures</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M24 5 43 24 24 43 5 24Z"/><path d="M16 24h16M24 16v16"/></svg></i><b>GOVERNANCE CONTROL</b><span>RAID, critical path, escalation and decision support</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M9 34V20M20 34V13M31 34V8M7 38h34"/><path d="m10 17 10-7 10 3 10-8"/></svg></i><b>TRANSFORMATION</b><span>Workflow redesign, Power BI visibility and ERP evaluation</span></div><div><i class="line-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="7"/><path d="M24 5v7M24 36v7M5 24h7M36 24h7M10.6 10.6l5 5M32.4 32.4l5 5M37.4 10.6l-5 5M15.6 32.4l-5 5"/></svg></i><b>COMPLEX DELIVERY</b><span>Cybersecurity, IT/ICT infrastructure and telecom environments</span></div></div><div class="cards"><article class="card"><small>GLOBAL DELIVERY</small><h3>Multi-Region Leadership</h3><p>Delivery exposure across the Middle East, Europe, East Asia and the Americas, coordinating teams, vendors and stakeholders across time zones and cultures.</p></article><article class="card"><small>GOVERNANCE</small><h3>Executive Control</h3><p>RAID, dependency management, critical-path impact assessment, escalation, executive reporting and decision support.</p></article><article class="card"><small>TRANSFORMATION</small><h3>From Operations to Insight</h3><p>Workflow redesign, Power BI management visibility and ERP evaluation as part of an internal digitalization journey.</p></article></div></div></section>
 
-<section class="page" data-page="projects"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button class="active" data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">FLAGSHIP TRANSFORMATIONS</div><h1 class="chapter-title">Complex delivery.<br>Visible outcomes.</h1><div class="cards"><article class="card"><small>01 / DIGITAL TRANSFORMATION</small><h3>Prosecure Internal Transformation Project</h3><p>Engineering workflow redesign → personally developed Power BI management dashboard → ERP requirements and vendor evaluation / selection.</p></article><article class="card"><small>02 / OT CYBERSECURITY</small><h3>SABIC OT Firewall Replacement Project</h3><p>Multi-region delivery across time zones, cultures and vendor dependencies, with schedule-impact assessment, escalation and mitigation around hardware/material constraints.</p></article><article class="card"><small>03 / TELECOM INFRASTRUCTURE</small><h3>Orange FTTH Project</h3><p>Large-scale network implementation with 100+ direct team members, coordinating resources, subcontractors, suppliers, schedules, quality, KPIs and acceptance.</p></article><article class="card"><small>04 / GOVERNANCE</small><h3>SAMA Compliance Project</h3><p>Cross-functional cybersecurity remediation, RAID tracking, governance, executive reporting and escalation.</p></article><article class="card"><small>05 / CRITICAL INFRASTRUCTURE</small><h3>Saudi Energy Program</h3><p>Cybersecurity delivery spanning Central Data Diode, Multi-Antivirus and OT enhancement initiatives.</p></article><article class="card"><small>06 / HIGH-RISK DELIVERY</small><h3>Al-Madar Long Haul Project</h3><p>30+ transmission-team leadership and continuity of field delivery in a high-risk operating environment.</p></article></div></div></section>
+<section class="page" data-page="projects"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button class="active" data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">FLAGSHIP TRANSFORMATIONS</div><h1 class="chapter-title">Complex delivery.<br>Visible outcomes.</h1><div class="cards"><article class="card"><small>01 / DIGITAL TRANSFORMATION</small><h3>Prosecure Internal Transformation Project</h3><p>Engineering workflow redesign → personally developed Power BI management dashboard → ERP requirements and vendor evaluation / selection.</p></article><article class="card"><small>02 / OT CYBERSECURITY</small><h3>SABIC OT Firewall Replacement Project</h3><p>Multi-region delivery across time zones, cultures and vendor dependencies, with schedule-impact assessment, escalation and mitigation around hardware/material constraints.</p></article><article class="card"><small>03 / TELECOM INFRASTRUCTURE</small><h3>Orange FTTH Project</h3><p>Large-scale network implementation with 100+ direct team members, coordinating resources, subcontractors, suppliers, schedules, quality, KPIs and acceptance.</p></article><article class="card"><small>04 / GOVERNANCE</small><h3>SAMA Compliance Project</h3><p>Cross-functional cybersecurity remediation, RAID tracking, governance, executive reporting and escalation.</p></article><article class="card"><small>05 / CRITICAL INFRASTRUCTURE</small><h3>Saudi Energy Program</h3><p>Cybersecurity delivery spanning Central Data Diode, Multi-Antivirus and OT enhancement initiatives.</p></article><article class="card"><small>06 / HIGH-RISK DELIVERY</small><h3>Al-Madar Long Haul Project</h3><p>30+ transmission-team leadership and continuity of field delivery in a high-risk operating environment.</p></article></div></div></section>
 
-<section class="page" data-page="lead"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button class="active" data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">MY DELIVERY OPERATING MODEL</div><h1 class="chapter-title">Structure creates<br>momentum.</h1><p class="chapter-lead">I turn complex technology initiatives into controlled delivery systems—aligning people, governance, risk, vendors and execution around measurable outcomes.</p><div class="flow"><div><b>01</b><span>ALIGN</span></div><div><b>02</b><span>MOBILIZE</span></div><div><b>03</b><span>GOVERN</span></div><div><b>04</b><span>CONTROL</span></div><div><b>05</b><span>RECOVER</span></div><div><b>06</b><span>DELIVER</span></div><div><b>07</b><span>TRANSITION</span></div><div><b>08</b><span>REALIZE</span></div></div><div class="cards"><article class="card"><small>GOVERNANCE</small><h3>Clarity before activity</h3><p>Objectives, scope, acceptance, stakeholders, decision rights, milestones and dependencies are aligned before execution accelerates.</p></article><article class="card"><small>DELIVERY CONTROL</small><h3>Facts over noise</h3><p>RAID, critical path, RAG, actions, change control and executive reporting create a common view of delivery reality.</p></article><article class="card"><small>METHOD</small><h3>Fit the method to the work</h3><p>Waterfall, Agile and Hybrid delivery selected according to technology, uncertainty, hardware dependencies and transformation needs.</p></article></div></div></section>
+<section class="page" data-page="lead"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button class="active" data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">MY DELIVERY OPERATING MODEL</div><h1 class="chapter-title">Structure creates<br>momentum.</h1><p class="chapter-lead">I turn complex technology initiatives into controlled delivery systems—aligning people, governance, risk, vendors and execution around measurable outcomes.</p><div class="flow"><div><b>01</b><span>ALIGN</span></div><div><b>02</b><span>MOBILIZE</span></div><div><b>03</b><span>GOVERN</span></div><div><b>04</b><span>CONTROL</span></div><div><b>05</b><span>RECOVER</span></div><div><b>06</b><span>DELIVER</span></div><div><b>07</b><span>TRANSITION</span></div><div><b>08</b><span>REALIZE</span></div></div><div class="cards"><article class="card"><small>GOVERNANCE</small><h3>Clarity before activity</h3><p>Objectives, scope, acceptance, stakeholders, decision rights, milestones and dependencies are aligned before execution accelerates.</p></article><article class="card"><small>DELIVERY CONTROL</small><h3>Facts over noise</h3><p>RAID, critical path, RAG, actions, change control and executive reporting create a common view of delivery reality.</p></article><article class="card"><small>METHOD</small><h3>Fit the method to the work</h3><p>Waterfall, Agile and Hybrid delivery selected according to technology, uncertainty, hardware dependencies and transformation needs.</p></article></div></div></section>
 
-<section class="page" data-page="journey"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button class="active" data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner journey-inner"><div class="chapter-kicker">MY JOURNEY</div><h1 class="chapter-title">A Career Built on Progress.</h1><p class="chapter-lead">From engineering foundations to global technology transformation leadership — same purpose, higher peaks.</p><div class="career-ascent">
+<section class="page" data-page="journey"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button class="active" data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner journey-inner"><div class="chapter-kicker">MY JOURNEY</div><h1 class="chapter-title">A Career Built on Progress.</h1><p class="chapter-lead">From engineering foundations to global technology transformation leadership — same purpose, higher peaks.</p><div class="career-ascent">
   <div class="ascent-rail"><span></span></div>
   <article class="ascent-step s1"><div class="year">2011–2014</div><div class="node">01</div><div class="journey-card"><b>BUILD THE FOUNDATION</b><strong>UMNIAH → ZTE</strong><p>3G, BSS, RAN & MW engineering foundations.</p></div></article>
   <article class="ascent-step s2"><div class="year">2014–2016</div><div class="node">02</div><div class="journey-card"><b>EXPAND & LEAD</b><strong>FirstLink Libya & Jordan</strong><p>Team leadership and Project Management.</p></div></article>
@@ -2790,21 +2916,19 @@
   <div class="ascent-future">THE JOURNEY CONTINUES <span>→</span></div>
 </div><div class="journey-footer">SAME PURPOSE. &nbsp; HIGHER PEAKS.</div></div></section>
 
-<section class="page" data-page="credentials"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button class="active" data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">CREDENTIALS BEHIND THE DELIVERY</div><div class="credential-pillars"><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M10 39h28M14 34h20M16 15h16v19H16zM12 10h24l-4 5H16z"/><path d="M20 20h8M20 25h8"/></svg></i><b>Governance</b><small>Direction & accountability</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M37 17A15 15 0 1 0 39 30"/><path d="M31 8h8v9"/><path d="M16 24h16M25 17l7 7-7 7"/></svg></i><b>Agility</b><small>Adaptability & speed</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M24 6 43 40H5Z"/><path d="M24 17v11M24 34v1"/></svg></i><b>Risk</b><small>Anticipate & mitigate</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M8 38 20 26l7 7 13-19"/><path d="M29 14h11v11"/></svg></i><b>Delivery</b><small>Strategy into outcomes</small></span></div><div class="cred-grid"><div class="cred"><h3>Govern & Deliver</h3><p><b>PMP® · P3O®</b><br><br>Project/program delivery, governance, portfolio and PMO thinking, executive control.</p></div><div class="cred"><h3>Adapt & Transform</h3><p><b>PMI-ACP® · PSM I · PSPO I</b><br><br>Waterfall, Agile & Hybrid delivery, iterative transformation and product/stakeholder thinking.</p></div><div class="cred"><h3>Anticipate & Protect</h3><p><b>PMI-RMP®</b><br><br>Risk identification, response planning, escalation, dependencies and uncertainty.</p></div></div></div></section>
+<section class="page" data-page="credentials"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button class="active" data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header><div class="chapter-inner"><div class="chapter-kicker">CREDENTIALS BEHIND THE DELIVERY</div><div class="credential-pillars"><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M10 39h28M14 34h20M16 15h16v19H16zM12 10h24l-4 5H16z"/><path d="M20 20h8M20 25h8"/></svg></i><b>Governance</b><small>Direction & accountability</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M37 17A15 15 0 1 0 39 30"/><path d="M31 8h8v9"/><path d="M16 24h16M25 17l7 7-7 7"/></svg></i><b>Agility</b><small>Adaptability & speed</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M24 6 43 40H5Z"/><path d="M24 17v11M24 34v1"/></svg></i><b>Risk</b><small>Anticipate & mitigate</small></span><span><i class="line-icon"><svg viewBox="0 0 48 48"><path d="M8 38 20 26l7 7 13-19"/><path d="M29 14h11v11"/></svg></i><b>Delivery</b><small>Strategy into outcomes</small></span></div><div class="cred-grid"><div class="cred"><h3>Govern & Deliver</h3><p><b>PMP® · P3O®</b><br><br>Project/program delivery, governance, portfolio and PMO thinking, executive control.</p></div><div class="cred"><h3>Adapt & Transform</h3><p><b>PMI-ACP® · PSM I · PSPO I</b><br><br>Waterfall, Agile & Hybrid delivery, iterative transformation and product/stakeholder thinking.</p></div><div class="cred"><h3>Anticipate & Protect</h3><p><b>PMI-RMP®</b><br><br>Risk identification, response planning, escalation, dependencies and uncertainty.</p></div></div></div></section>
 
 
 <section class="page services-page" data-page="services">
-<header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button class="active" data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header>
+<header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button class="active" data-go="services">Advisory &amp; Services</button></nav><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button></div><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></header>
 <div class="mock-services">
 <section class="ms-hero ms-hero-exact" aria-label="Advisory and Services">
   <img src="services-hero-fullhd.jpg" alt="Experience, Put to Work — Advisory & Services">
-  <button class="ms-hit ms-hit-org" data-ms-jump="org" aria-label="For Organizations"></button>
-  <button class="ms-hit ms-hit-pro" data-ms-jump="pro" aria-label="For Professionals"></button>
 </section>
 
 <nav class="ms-subtabs" aria-label="Advisory services audience">
-  <button class="active" data-service-tab="org" aria-selected="true">FOR ORGANIZATIONS</button>
-  <button data-service-tab="pro" aria-selected="false">FOR PROFESSIONALS</button>
+  <button type="button" class="active" data-service-tab="org" aria-selected="true">FOR ORGANIZATIONS</button>
+  <button type="button" data-service-tab="pro" aria-selected="false">FOR PROFESSIONALS</button>
 </nav>
 <div class="ms-tab-stage">
 <section class="ms-section ms-service-panel active" id="ms-org" data-service-panel="org">
@@ -2829,20 +2953,9 @@
 </section>
 
 </div>
-<section class="ms-bottom ms-bottom-exact">
-  <img src="services-bottom-fullhd.jpg" alt="Ready to Make Progress — Clearer Decisions, Stronger Delivery, Real Progress">
-  <button class="ms-bottom-hit" data-go="contact" aria-label="Get in Touch"></button>
-  <div class="ms-flow-crisp" aria-label="Clearer Decisions to Stronger Delivery to Real Progress">
- <div class="flow-step"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="8"/><path d="M24 24 38 10M32 10h6v6"/></svg><b>Clearer<br>Decisions</b></div>
- <i>→</i>
- <div class="flow-step"><svg viewBox="0 0 48 48"><circle cx="17" cy="17" r="6"/><circle cx="31" cy="17" r="6"/><path d="M6 39c0-9 4-14 11-14s11 5 11 14M20 39c0-9 4-14 11-14s11 5 11 14"/></svg><b>Stronger<br>Delivery</b></div>
- <i>→</i>
- <div class="flow-step"><svg viewBox="0 0 48 48"><path d="M8 39h32M11 34V25h7v9M22 34V18h7v16M33 34V10h7v24"/><path d="m10 20 10-8 8 3 11-9"/></svg><b>Real<br>Progress</b></div>
 </div>
 </section>
-</div>
-</section>
-<section class="page contact-page" data-page="contact"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button><div class="top-actions"><button class="music" data-music><span class="disc">♫</span><span>Play Music</span></button></div></header><div class="chapter-inner"><div class="chapter-kicker">NEXT CHAPTER</div><h1 class="chapter-title">LET'S BUILD<br>WHAT'S NEXT.</h1>
+<section class="page contact-page" data-page="contact"><header class="topbar"><a class="brand" data-go="home"><strong>MAHMOUD OTOOM</strong><span>SENIOR PROJECT & PROGRAM MANAGER</span></a><nav class="nav"><button data-go="home">Home</button><button data-go="impact">Impact</button><button data-go="projects">Projects</button><button data-go="lead">How I Lead</button><button data-go="journey">Journey</button><button data-go="credentials">Credentials</button><button data-go="services">Advisory &amp; Services</button></nav><button class="mobile-menu-btn" aria-label="Open navigation">☰</button><div class="top-actions"><button class="connect" data-go="contact">Let's Connect&nbsp; →</button><button class="music" data-music><span class="disc">♫</span><span>Play Music</span></button></div></header><div class="chapter-inner"><div class="chapter-kicker">NEXT CHAPTER</div><h1 class="chapter-title">LET'S BUILD<br>WHAT'S NEXT.</h1>
 <div class="contact-hook">
   <h2>THE NEXT <span>TRANSFORMATION</span><br>STARTS WITH A <em>CONVERSATION.</em></h2>
   <p>If you're building something <em>complex</em>, <em>ambitious</em> or <em>business-critical</em>,<br class="contact-desktop-break"> let's explore what we can <strong>move forward together.</strong></p>
@@ -2852,7 +2965,7 @@
 <audio id="audio" loop preload="metadata"><source src="awakening.mp3" type="audio/mpeg"></audio>
 <script>
 const stage=document.getElementById('stage'),wrap=document.getElementById('stageWrap');
-function fit(){const baseW=1536,baseH=1024;const vw=document.documentElement.clientWidth;const vh=window.innerHeight;if(vw<=800){stage.style.zoom='';stage.style.transform='none';wrap.style.height='auto';wrap.style.width='100%';wrap.style.margin='0';return;}let s=Math.min(vw/baseW,Math.max(.55,vh/baseH));stage.style.transform='none';stage.style.zoom=String(s);wrap.style.height=(baseH*s)+'px';wrap.style.width=(baseW*s)+'px';wrap.style.margin='0 auto';}
+function fit(){const baseW=1536,baseH=1537,contentH=1024;const vw=document.documentElement.clientWidth;const vh=window.innerHeight;if(vw<=800){stage.style.zoom='';stage.style.transform='none';wrap.style.height='auto';wrap.style.width='100%';wrap.style.margin='0';return;}let s=Math.min(vw/baseW,Math.max(.55,vh/contentH));stage.style.transform='none';stage.style.zoom=String(s);wrap.style.height=(baseH*s)+'px';wrap.style.width=(baseW*s)+'px';wrap.style.margin='0 auto';}
 addEventListener('resize',fit);fit();
 function go(name){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===name));history.replaceState(null,'','#'+name);window.scrollTo({top:0,behavior:'smooth'});const pg=document.querySelector(`[data-page="${name}"]`);if(pg)animateCounters(pg);}
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
@@ -3115,4 +3228,72 @@ document.addEventListener('click',function(e){
   if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
 });
 </script>
+
+<script id="v47-final-ui">
+(()=>{
+  const tabs=[...document.querySelectorAll('[data-service-tab]')];
+  const panels=[...document.querySelectorAll('[data-service-panel]')];
+  function activateService(key){
+    tabs.forEach(t=>{
+      const on=t.dataset.serviceTab===key;
+      t.classList.toggle('active',on);
+      t.setAttribute('aria-selected',String(on));
+    });
+    panels.forEach(p=>p.classList.toggle('active',p.dataset.servicePanel===key));
+  }
+  tabs.forEach(t=>t.addEventListener('click',e=>{
+    e.preventDefault(); e.stopPropagation(); activateService(t.dataset.serviceTab);
+  }));
+  activateService('org');
+
+  const footer=`
+  <footer class="global-footer">
+    <div class="gf-mockup-wrap">
+      <img class="gf-mockup-img" src="footer-approved-mockup.png" alt="Mahmoud Otoom — Technology Transformation & Complex Delivery footer">
+      <a class="gf-hot gf-hot-email" href="mailto:eng.otoom@gmail.com" aria-label="Email Mahmoud Otoom"></a>
+      <a class="gf-hot gf-hot-linkedin" href="https://www.linkedin.com/in/mahmoud-otoom/" target="_blank" rel="noopener" aria-label="Connect on LinkedIn"></a>
+      <button class="gf-hot gf-hot-connect" data-go="contact" aria-label="Let's Connect"></button>
+      <button class="gf-hot gf-hot-home" data-go="home" aria-label="Home"></button>
+      <button class="gf-hot gf-hot-services" data-go="services" aria-label="Advisory and Services"></button>
+      <button class="gf-hot gf-hot-experience" data-go="journey" aria-label="Experience"></button>
+      <button class="gf-hot gf-hot-credentials" data-go="credentials" aria-label="Credentials"></button>
+      <button class="gf-hot gf-hot-bottom-connect" data-go="contact" aria-label="Let's Connect"></button>
+      <div class="gf-mobile-exact">
+        <div class="m-sign">Mahmoud Otoom</div>
+        <h4>TECHNOLOGY TRANSFORMATION &amp; COMPLEX DELIVERY</h4>
+        <div class="keys">STRATEGY &nbsp; | &nbsp; GOVERNANCE &nbsp; | &nbsp; DELIVERY &nbsp; | &nbsp; PEOPLE</div>
+        <div class="sep"></div>
+        <h3>PEOPLE. PROCESS. TECHNOLOGY.</h3>
+        <em>Turning strategy into real progress.</em>
+        <div class="progress">CLEARER DECISIONS &nbsp; → &nbsp; STRONGER DELIVERY &nbsp; → &nbsp; REAL PROGRESS</div>
+        <div class="contact">
+          <span>Riyadh, Saudi Arabia</span>
+          <a href="mailto:eng.otoom@gmail.com">eng.otoom@gmail.com</a>
+          <a href="https://www.linkedin.com/in/mahmoud-otoom/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+        <button class="m-connect" data-go="contact">Let's Connect &nbsp; →</button>
+        <div class="new">NEW PERSPECTIVES.<br>REAL PROGRESS.</div>
+        <div class="nav">
+          <button data-go="home">Home</button>
+          <button data-go="services">Advisory &amp; Services</button>
+          <button data-go="journey">Experience</button>
+          <button data-go="credentials">Credentials</button>
+          <button data-go="contact">Let's Connect</button>
+        </div>
+        <div class="copy">© 2026 Mahmoud Otoom. All rights reserved.<br><b>Built for a Better Tomorrow.</b></div>
+      </div>
+    </div>
+  </footer>`;
+  document.querySelectorAll('.page').forEach(p=>{
+    if(!p.querySelector('.global-footer')) p.insertAdjacentHTML('beforeend',footer);
+  });
+
+  // Footer buttons are injected after the site's original data-go listener registration.
+  document.querySelectorAll('.global-footer [data-go]').forEach(el=>el.addEventListener('click',e=>{
+    e.preventDefault();
+    if(typeof go==='function') go(el.dataset.go);
+  }));
+})();
+</script>
+
 </body></html>
