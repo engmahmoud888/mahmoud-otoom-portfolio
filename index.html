@@ -2902,6 +2902,31 @@
 }
 </style>
 
+
+<style id="v53-final-two-refinements">
+/* 1) Advisory & Services — Desktop: enlarge the descriptive copy under every service title. */
+@media (min-width:801px){
+  .services-page .ms-card p{
+    font-size:16px!important;
+    line-height:1.55!important;
+    font-weight:500!important;
+  }
+}
+
+/* 2) Mobile footer — enlarge the approved artwork modestly without horizontal page overflow. */
+@media (max-width:800px){
+  .global-footer .gf-mockup-wrap{
+    overflow:hidden!important;
+  }
+  .global-footer .gf-mockup-img{
+    width:110%!important;
+    max-width:none!important;
+    margin-left:-5%!important;
+    height:auto!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport"><div class="stage-wrap" id="stageWrap"><div class="stage" id="stage">
