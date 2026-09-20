@@ -2945,6 +2945,26 @@
 }
 </style>
 
+
+<style id="v55-mobile-vertical-footer">
+@media (max-width:800px){
+  .global-footer{position:relative!important;display:block!important;height:auto!important;min-height:0!important;overflow:visible!important;clear:both!important;}
+  .global-footer .gf-mockup-wrap,.global-footer .gf-mockup-img{display:none!important;}
+  .global-footer .gf-mobile-vertical{
+    display:block!important;position:relative!important;inset:auto!important;
+    width:100%!important;height:auto!important;margin:0!important;padding:0!important;
+    overflow:visible!important;clear:both!important;transform:none!important;
+  }
+  .global-footer .gf-mobile-vertical img{
+    display:block!important;width:100%!important;max-width:100%!important;height:auto!important;
+    margin:0 auto!important;object-fit:contain!important;transform:none!important;
+  }
+}
+@media (min-width:801px){
+  .global-footer .gf-mobile-vertical{display:none!important;}
+}
+</style>
+
 </head>
 <body>
 <div class="viewport"><div class="stage-wrap" id="stageWrap"><div class="stage" id="stage">
@@ -3327,7 +3347,7 @@ document.addEventListener('click',function(e){
       <a class="gf-hot gf-hot-linkedin" href="https://www.linkedin.com/in/mahmoud-otoom/" target="_blank" rel="noopener" aria-label="Connect on LinkedIn"></a>
       <button class="gf-hot gf-hot-connect" data-go="contact" aria-label="Let's Connect"></button>
     </div>
-  </footer>`;
+  <div class="gf-mobile-vertical"><img src="mobile-footer-vertical.png" alt="Mahmoud Otoom footer"></div></footer>`;
   document.querySelectorAll('.page').forEach(p=>{
     if(!p.querySelector('.global-footer')) p.insertAdjacentHTML('beforeend',footer);
   });
